@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Mon Nov 07 11:39:58 CET 2016
+#Mon Nov 07 11:56:02 CET 2016
 target2.width=90
 class.WallWithEntrance.superclass=ScrollActor
 target8.name=Mushroom
@@ -140,7 +140,7 @@ dependency7.from=DemoWorld
 target1.editor.y=100
 target1.editor.x=966
 target5.width=80
-class.Link.image=Link.png
+class.Link.image=link.png
 dependency4.to=Mushroom
 target4.editor.width=456
 target4.name=Rock
