@@ -6,6 +6,6 @@ import greenfoot.*;
  * 
  * @author Sven van Nigtevecht
  */
-public class Rock extends ScrollActor
+public class Rock extends GameObject
 {
 }

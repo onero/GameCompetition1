@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class WallWithEntrance extends ScrollActor
+public class WallWithEntrance extends GameObject
 {
     /**
      * Act - do whatever the WallWithEntrance wants to do. This method is called whenever
