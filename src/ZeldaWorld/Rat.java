@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Rat extends Enemy
 {
+    public Rat(int damage) {
+        super.damage = damage;
+    }
     /**
      * Act - do whatever the Rat wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
