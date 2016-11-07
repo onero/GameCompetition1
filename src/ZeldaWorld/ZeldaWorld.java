@@ -5,12 +5,12 @@ import greenfoot.*;
  * 
  * @author Sven van Nigtevecht
  */
-public class DemoWorld extends ScrollWorld
+public class ZeldaWorld extends ScrollWorld
 {
     /**
      * Constructor for objects of class DemoWorld.
      */
-    public DemoWorld()
+    public ZeldaWorld()
     {
         super(600, 400, 1, 1000, 700);
         addObject(new Mushroom(), 100,100);
