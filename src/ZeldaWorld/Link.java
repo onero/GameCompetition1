@@ -13,6 +13,13 @@ public class Link extends Character
     /** The number of cells we move forward and backword */
     private static final int MOVE_AMOUNT = 5;
     /**
+     * Create the main character Link
+     */
+    public Link(int health, int damage) {
+        super.health = health;
+        super.damage = damage;
+    }
+    /**
      * Move to face the mouse,
      * and listen to the up and down keys.
      */
@@ -25,7 +32,7 @@ public class Link extends Character
             getWorld().setCameraDirection(getRotation());
         }
         //TODO ALH: Make really smooth!
-        if (getOneIntersectingObject(null) == null || getOneIntersectingObject(WallWithEntrance.class) != null) {
+        if (getOneIntersectingObject(GameObject.class) == null || getOneIntersectingObject(WallWithEntrance.class) != null) {
             if (Greenfoot.isKeyDown("up")) {
                 // move the camera forwards:
                 getWorld().moveCamera(MOVE_AMOUNT);
@@ -40,4 +47,13 @@ public class Link extends Character
         }
 
     }
+    
+    /**
+     * Gets the health of Link
+     */
+    public static int getHealth() {
+        return health;
+    }
+    
+    //TODO ALH: We need to be able to get information about the damage of Link!
 }
