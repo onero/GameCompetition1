@@ -5,19 +5,17 @@ import greenfoot.*;
  * 
  * @author Sven van Nigtevecht
  */
-public class DemoWorld extends ScrollWorld
+public class ZeldaWorld extends ScrollWorld
 {
     /**
      * Constructor for objects of class DemoWorld.
      */
-    public DemoWorld()
+    public ZeldaWorld()
     {
-        super(600, 400, 1, 1000, 700);
-        addObject(new Mushroom(), 100,100);
-        addObject(new Apple(), 700, 300);
+        super(600, 400, 1, 1500, 1500);
         addObject(new Rock(), 400, 254);
         
-        addCameraFollower(new Bug(), 0, 0);
+        addCameraFollower(new Link(), 0, 0);
         
         addObject(new FPS(), 85, 15); // FPS isn't a subclass of
         // ScrollActor, so it will looklike it's a camera follower

@@ -8,7 +8,7 @@ import greenfoot.*;
  * @author Sven van Nigtevecht
  * @version 1.0
  */
-public class Bug extends ScrollActor
+public class Link extends Character
 {
     /** The number of cells we move forward and backword */
     private static final int MOVE_AMOUNT = 5;
