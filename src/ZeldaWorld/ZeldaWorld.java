@@ -13,7 +13,6 @@ public class ZeldaWorld extends ScrollWorld
     public ZeldaWorld()
     {
         super(600, 400, 1, 1000, 700);
-        addObject(new Mushroom(), 100,100);
         addObject(new Rock(), 400, 254);
         
         addCameraFollower(new Link(), 0, 0);
