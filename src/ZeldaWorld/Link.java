@@ -12,7 +12,6 @@ public class Link extends Character
 {
     /** The number of cells we move forward and backword */
     private static final int MOVE_AMOUNT = 5;
-    
     /**
      * Move to face the mouse,
      * and listen to the up and down keys.
@@ -25,13 +24,20 @@ public class Link extends Character
             // set the camera's direction to ours:
             getWorld().setCameraDirection(getRotation());
         }
-        if (Greenfoot.isKeyDown("down")) {
+        //TODO ALH: Make really smooth!
+        if (getOneIntersectingObject(null) == null || getOneIntersectingObject(WallWithEntrance.class) != null) {
+            if (Greenfoot.isKeyDown("up")) {
+                // move the camera forwards:
+                getWorld().moveCamera(MOVE_AMOUNT);
+            }
+        } else if (Greenfoot.isKeyDown("down")) {
             // move the camera backwards:
             getWorld().moveCamera(-MOVE_AMOUNT);
         }
-        if (Greenfoot.isKeyDown("up")) {
-            // move the camera forwards:
-            getWorld().moveCamera(MOVE_AMOUNT);
+        //If character enters dungeon set world to DungeonWorld
+        if (isTouching(Dungeon.class)) {
+            Greenfoot.setWorld(ZeldaWorld.dungeonWorld);
         }
+
     }
 }

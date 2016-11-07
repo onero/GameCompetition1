@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class WallWithEntrance extends Wall
 {
+    public WallWithEntrance() {
+        canPass = true;
+    }
     /**
      * Act - do whatever the WallWithEntrance wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
