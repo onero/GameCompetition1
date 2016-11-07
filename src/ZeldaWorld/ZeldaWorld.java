@@ -12,7 +12,7 @@ public class ZeldaWorld extends ScrollWorld
      */
     public ZeldaWorld()
     {
-        super(600, 400, 1, 1000, 700);
+        super(600, 400, 1, 1500, 1500);
         addObject(new Rock(), 400, 254);
         
         addCameraFollower(new Link(), 0, 0);
