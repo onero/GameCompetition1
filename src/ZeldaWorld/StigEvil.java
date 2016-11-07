@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class WallWithEntrance here.
+ * Write a description of class StigEvil here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class WallWithEntrance extends Wall
+public class StigEvil extends Boss
 {
     /**
-     * Act - do whatever the WallWithEntrance wants to do. This method is called whenever
+     * Act - do whatever the StigEvil wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
