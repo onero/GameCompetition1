@@ -42,6 +42,7 @@ public class ZeldaWorld extends ScrollWorld
             addObject(new Wall(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
             addObject(new WallWithEntrance(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
         }
+<<<<<<< HEAD
         addObject(new Dungeon(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
     }
 
@@ -49,6 +50,15 @@ public class ZeldaWorld extends ScrollWorld
      *Create the bosses
      */
     private void createBosses() {
+=======
+        
+        addObject(new Dungeon(), 600, 600); 
+        
+        addCameraFollower(new Link(10, 5), 0, 0);
+
+        //addObject(new FPS(), 85, 15); // FPS isn't a subclass of
+        // ScrollActor, so it will looklike it's a camera 
+>>>>>>> origin/Peder
         addObject(new PlayerInfo(), 85, 15);
         addObject(new StigEvil(30, 5, "wand", 5), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT)); 
         addObject(new JeppeTheForker(20, 6, "trident", 6),rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
