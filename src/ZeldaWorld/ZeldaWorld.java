@@ -34,6 +34,9 @@ public class ZeldaWorld extends ScrollWorld
         //addObject(new FPS(), 85, 15); // FPS isn't a subclass of
         // ScrollActor, so it will looklike it's a camera 
         addObject(new PlayerInfo(), 85, 15);
+        addObject(new StigEvil(30, 5, "wand", 5), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT)); 
+        addObject(new JeppeTheForker(20, 6, "trident", 6),rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+        addObject(new Peter(15, 4, "sword", 4), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
 
         //Add Enemies
         for (int i = 0; i < 10; i++) {
