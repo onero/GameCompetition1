@@ -34,6 +34,13 @@ public abstract class Character extends ScrollActor
     public int getDamage() {
         return damage;
     }
+
+    /**
+     * Gets the health of character
+     */
+    public int getHealth() {
+        return health;
+    }
     
     /**
      * Check if character is alive

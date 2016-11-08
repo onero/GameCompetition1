@@ -12,6 +12,7 @@ public class ZeldaWorld extends ScrollWorld
     public static DungeonWorld dungeonWorld;
     public static CastleWorld castleWorld;
     private Random rand;
+    private static Character link;
     /**
      * Constructor for objects of class DemoWorld.
      */
@@ -24,8 +25,8 @@ public class ZeldaWorld extends ScrollWorld
         castleWorld = new CastleWorld();
 
         createObjects();
-
-        addCameraFollower(new Link(10, 5), 0, 0);
+        link = new Link(10, 5);
+        addCameraFollower(link, 0, 0);
 
         createBosses();
 
@@ -75,5 +76,12 @@ public class ZeldaWorld extends ScrollWorld
             addObject(new Rat(5, 1), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
             addObject(new Slime(8, 3), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
         }
+    }
+    
+    /**
+     * Get the current character
+     */
+    public static Character getPlayer() {
+        return link;
     }
 }
