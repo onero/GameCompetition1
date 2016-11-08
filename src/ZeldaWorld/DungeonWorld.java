@@ -53,5 +53,7 @@ public class DungeonWorld extends ScrollWorld
             addObject(new CaveWall(), 1770 , i);
         }
         
+        addObject(new CastleEntrance(), 1500, 1500);
+        
     }
 }
