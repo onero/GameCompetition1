@@ -17,7 +17,7 @@ public class CastleWorld extends ScrollWorld
     {
         super(600, 400, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
         addCameraFollower(new Link(10, 5), 0, 0);
-        addObject(new StigEvil(30, 5, "wand", 5), 1000, 1200);
+        addObject(new StigEvil(30, 5, "wand", 5), 600, 300);
         //TODO ALH: Add enemies and objects!
     }
 }
