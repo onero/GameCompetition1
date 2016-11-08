@@ -9,8 +9,6 @@ import java.util.*;
  */
 public class DungeonWorld extends ScrollWorld
 {
-    public static final int GAME_WIDTH = 2000;
-    public static final int GAME_HEIGHT = 2000;
     Random rand = new Random();
     
     /**
@@ -19,15 +17,11 @@ public class DungeonWorld extends ScrollWorld
      */
     public DungeonWorld()
     {
-<<<<<<< HEAD
         super(600, 400, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
-        //TODO ALH: Add enemies and objects!
-=======
-        super(600, 600, 1, GAME_WIDTH, GAME_HEIGHT);
         
         for(int i = 0; i < 10; i++)
         {
-            addObject(new Rat(1), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+            addObject(new Rat(5, 1), rand.nextInt(ZeldaWorld.GAME_WIDTH), rand.nextInt(ZeldaWorld.GAME_HEIGHT));
         }
         
         addCameraFollower(new Link(10, 5), 0, 0);
@@ -59,6 +53,5 @@ public class DungeonWorld extends ScrollWorld
         
         addObject(new CastleEntrance(), 1500, 1500);
         
->>>>>>> origin/Peder
     }
 }
