@@ -36,8 +36,9 @@ public class PlayerInfo extends Actor
     private final void updateImage()
     {
         getImage().clear();
-        GreenfootImage health = new GreenfootImage(HEALTH_PREFIX, 16, textColor, null);
-        GreenfootImage damage = new GreenfootImage(DAMAGE_PREFIX, 16, textColor, null);
+        //TODO ALH: Get this to work with real data!
+        GreenfootImage health = new GreenfootImage(HEALTH_PREFIX + 10, 16, textColor, null);
+        GreenfootImage damage = new GreenfootImage(DAMAGE_PREFIX + 5, 16, textColor, null);
         getImage().drawImage(health, 1, 1);
         getImage().drawImage(damage, 1, 15);
     }
