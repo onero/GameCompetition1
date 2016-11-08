@@ -13,7 +13,6 @@ public class ZeldaWorld extends ScrollWorld
     public static CastleWorld castleWorld;
     private Random rand;
     private static Character link;
-    private Quest mainQuest;
     /**
      * Constructor for objects of class DemoWorld.
      */
@@ -37,7 +36,7 @@ public class ZeldaWorld extends ScrollWorld
         createEnemies();
         //Create quest
         //TODO ALH: Add real quest
-        addObject(new Quest("SomeQuest", "This is some quest!"), 85, 25);
+        addObject(new Quest("SomeQuest", "This is some quest!"), 550, 15);
 
     }
 
