@@ -3,12 +3,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class StigEvil here.
  * 
- * @author (your name) 
+ * @author EASV2016 Group 12
  * @version (a version number or a date)
  */
 public class StigEvil extends Boss
 {
-    public StigEvil(int damage, String evilWeapon, int evilDamage) {
+    public StigEvil(int health, int damage, String evilWeapon, int evilDamage) {
+        super.health = health;
         super.damage = damage;
         super.evilWeapon = evilWeapon;
         super.evilDamage = evilDamage;

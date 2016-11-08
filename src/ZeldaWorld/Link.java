@@ -1,11 +1,10 @@
 import greenfoot.*;
 
 /**
- * An demo class which is meant to be a camera follower.
  * It moves to face your mouse cursor, and it can move
  * back and forward.
  * 
- * @author Sven van Nigtevecht
+ * @author EASV2016 Group 12t
  * @version 1.0
  */
 public class Link extends Character
@@ -19,6 +18,7 @@ public class Link extends Character
         super.health = health;
         super.damage = damage;
     }
+
     /**
      * Move to face the mouse,
      * and listen to the up and down keys.
@@ -46,14 +46,42 @@ public class Link extends Character
             Greenfoot.setWorld(ZeldaWorld.dungeonWorld);
         }
 
+        if (enemyIsNear()) {
+            fightMonster();
+        }
+
+        //If character enters castle set world to CastleWorld
+        if (isTouching(CastleEntrance.class)) {
+            Greenfoot.setWorld(ZeldaWorld.castleWorld);
+        }
     }
-    
+
     /**
      * Gets the health of Link
      */
-    public static int getHealth() {
+    public int getHealth() {
         return health;
     }
-    
+
+    /**
+     * Check for monster in the vicinity of Link
+     */
+    private boolean enemyIsNear() {
+        return getOneIntersectingObject(Enemy.class) != null;
+    }
+
+    /**
+     * Fight the enemy
+     */
+    private void fightMonster() {
+        Enemy currentEnemy = (Enemy) getOneIntersectingObject(Enemy.class);
+        if (currentEnemy.isAlive()) {
+            takeDamage(currentEnemy.getDamage());
+            currentEnemy.takeDamage(damage);
+        } else {
+            removeTouching(currentEnemy.getClass());
+        }
+    }
+
     //TODO ALH: We need to be able to get information about the damage of Link!
 }

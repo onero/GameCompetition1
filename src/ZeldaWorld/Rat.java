@@ -3,12 +3,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Rat here.
  * 
- * @author (your name) 
+ * @author EASV2016 Group 12 
  * @version (a version number or a date)
  */
 public class Rat extends Enemy
 {
-    public Rat(int damage) {
+    public Rat(int health, int damage) {
+        super.health = health;
         super.damage = damage;
     }
     /**

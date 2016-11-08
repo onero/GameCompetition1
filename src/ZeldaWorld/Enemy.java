@@ -3,10 +3,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Enemy here.
  * 
- * @author (your name) 
+ * @author EASV2016 Group 12
  * @version (a version number or a date)
  */
-public class Enemy extends Character
+public abstract class Enemy extends Character
 {
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever

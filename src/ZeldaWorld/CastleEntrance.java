@@ -1,19 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GameObjects here.
+ * Write a description of class CastleEntrance here.
  * 
- * @author EASV2016 Group 12
+ * @author (your name) 
  * @version (a version number or a date)
  */
-public abstract class GameObject extends ScrollActor
+public class CastleEntrance extends GameObject
 {
     /**
-     * Act - do whatever the GameObjects wants to do. This method is called whenever
+     * Act - do whatever the CastleEntrance wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
         // Add your action code here.
-    }
+    }    
 }

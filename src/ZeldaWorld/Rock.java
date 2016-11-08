@@ -1,10 +1,8 @@
 import greenfoot.*;
 
 /**
- * A class with almost no code inside it:
- * it does nothing.
  * 
- * @author Sven van Nigtevecht
+ * @author EASV2016 Group 12
  */
 public class Rock extends GameObject
 {
