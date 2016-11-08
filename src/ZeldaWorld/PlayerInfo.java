@@ -4,7 +4,7 @@ import java.awt.Color;
 /**
  * Write a description of class Health here.
  * 
- * @author (your name) 
+ * @author EASV2016 Group 12 
  * @version (a version number or a date)
  */
 public class PlayerInfo extends Actor
@@ -36,8 +36,7 @@ public class PlayerInfo extends Actor
     private final void updateImage()
     {
         getImage().clear();
-        GreenfootImage health = new GreenfootImage(HEALTH_PREFIX + Link.getHealth(), 16, textColor, null);
-        //TODO ALH: We need to add the damage from link to the output like the health
+        GreenfootImage health = new GreenfootImage(HEALTH_PREFIX, 16, textColor, null);
         GreenfootImage damage = new GreenfootImage(DAMAGE_PREFIX, 16, textColor, null);
         getImage().drawImage(health, 1, 1);
         getImage().drawImage(damage, 1, 15);

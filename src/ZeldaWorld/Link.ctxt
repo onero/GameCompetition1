@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Link
-comment0.text=\r\n\ An\ demo\ class\ which\ is\ meant\ to\ be\ a\ camera\ follower.\r\n\ It\ moves\ to\ face\ your\ mouse\ cursor,\ and\ it\ can\ move\r\n\ back\ and\ forward.\r\n\ \r\n\ @author\ Sven\ van\ Nigtevecht\r\n\ @version\ 1.0\r\n
+comment0.text=\r\n\ An\ demo\ class\ which\ is\ meant\ to\ be\ a\ camera\ follower.\r\n\ It\ moves\ to\ face\ your\ mouse\ cursor,\ and\ it\ can\ move\r\n\ back\ and\ forward.\r\n\ \r\n\ @author\ EASV2016\ Group\ 12t\r\n\ @version\ 1.0\r\n
 comment1.params=health\ damage
 comment1.target=Link(int,\ int)
 comment1.text=\r\n\ Create\ the\ main\ character\ Link\r\n

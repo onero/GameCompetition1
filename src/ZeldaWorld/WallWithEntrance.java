@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class WallWithEntrance here.
  * 
- * @author (your name) 
+ * @author EASV2016 Group 12
  * @version (a version number or a date)
  */
 public class WallWithEntrance extends Wall
