@@ -2,9 +2,8 @@ import greenfoot.*;
 import java.util.*;
 
 /**
- * A little demo world to show you how this works.
  * 
- * @author Sven van Nigtevecht
+ * @author EASV2016 Group 12
  */
 public class ZeldaWorld extends ScrollWorld
 {
@@ -38,7 +37,7 @@ public class ZeldaWorld extends ScrollWorld
         
         //Add Enemies
         for (int i = 0; i < 10; i++) {
-            addObject(new Rat(1), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+            addObject(new Rat(5, 1), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
             addObject(new Slime(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
         }
     }

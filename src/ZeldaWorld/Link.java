@@ -1,11 +1,10 @@
 import greenfoot.*;
 
 /**
- * An demo class which is meant to be a camera follower.
  * It moves to face your mouse cursor, and it can move
  * back and forward.
  * 
- * @author Sven van Nigtevecht
+ * @author EASV2016 Group 12t
  * @version 1.0
  */
 public class Link extends Character
@@ -51,7 +50,7 @@ public class Link extends Character
     /**
      * Gets the health of Link
      */
-    public static int getHealth() {
+    public int getHealth() {
         return health;
     }
     
