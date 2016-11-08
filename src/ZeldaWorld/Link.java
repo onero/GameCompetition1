@@ -57,13 +57,6 @@ public class Link extends Character
     }
 
     /**
-     * Gets the health of Link
-     */
-    public int getHealth() {
-        return health;
-    }
-
-    /**
      * Check for monster in the vicinity of Link
      */
     private boolean enemyIsNear() {

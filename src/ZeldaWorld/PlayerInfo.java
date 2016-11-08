@@ -18,7 +18,7 @@ public class PlayerInfo extends Actor
      */
     public PlayerInfo()
     {
-        setImage(new GreenfootImage(150, 32));
+        setImage(new GreenfootImage(150, 50));
         GreenfootImage image = getImage();
     }
     /**
@@ -37,9 +37,9 @@ public class PlayerInfo extends Actor
     {
         getImage().clear();
         //TODO ALH: Get this to work with real data!
-        GreenfootImage health = new GreenfootImage(HEALTH_PREFIX + 10, 16, textColor, null);
-        GreenfootImage damage = new GreenfootImage(DAMAGE_PREFIX + 5, 16, textColor, null);
-        getImage().drawImage(health, 1, 1);
-        getImage().drawImage(damage, 1, 15);
+        GreenfootImage health = new GreenfootImage(HEALTH_PREFIX + ZeldaWorld.getPlayer().getHealth(), 25, textColor, null);
+        GreenfootImage damage = new GreenfootImage(DAMAGE_PREFIX + ZeldaWorld.getPlayer().getDamage(), 25, textColor, null);
+        getImage().drawImage(health, 1, 10);
+        getImage().drawImage(damage, 2, 25);
     }
 }
