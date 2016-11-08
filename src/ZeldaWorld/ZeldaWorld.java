@@ -2,9 +2,8 @@ import greenfoot.*;
 import java.util.*;
 
 /**
- * A little demo world to show you how this works.
  * 
- * @author Sven van Nigtevecht
+ * @author EASV2016 Group 12
  */
 public class ZeldaWorld extends ScrollWorld
 {
@@ -35,11 +34,11 @@ public class ZeldaWorld extends ScrollWorld
         //addObject(new FPS(), 85, 15); // FPS isn't a subclass of
         // ScrollActor, so it will looklike it's a camera 
         addObject(new PlayerInfo(), 85, 15);
-        
+
         //Add Enemies
         for (int i = 0; i < 10; i++) {
-            addObject(new Rat(1), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
-            addObject(new Slime(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+            addObject(new Rat(5, 1), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+            addObject(new Slime(8,3), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
         }
     }
 }
