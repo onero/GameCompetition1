@@ -45,11 +45,18 @@ public class Link extends Character
         if (isTouching(Dungeon.class)) {
             Greenfoot.setWorld(ZeldaWorld.dungeonWorld);
         }
+<<<<<<< HEAD
 
         if (enemyIsNear()) {
             fightMonster();
         }
 
+=======
+        //If character enters castle set world to CastleWorld
+        if (isTouching(CastleEntrance.class)) {
+            Greenfoot.setWorld(ZeldaWorld.castleWorld);
+        }
+>>>>>>> origin/Peder
     }
 
     /**
