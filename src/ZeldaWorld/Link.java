@@ -18,6 +18,7 @@ public class Link extends Character
         super.health = health;
         super.damage = damage;
     }
+
     /**
      * Move to face the mouse,
      * and listen to the up and down keys.
@@ -45,14 +46,38 @@ public class Link extends Character
             Greenfoot.setWorld(ZeldaWorld.dungeonWorld);
         }
 
+        if (enemyIsNear()) {
+            fightMonster();
+        }
+
     }
-    
+
     /**
      * Gets the health of Link
      */
     public int getHealth() {
         return health;
     }
-    
+
+    /**
+     * Check for monster in the vicinity of Link
+     */
+    private boolean enemyIsNear() {
+        return getOneIntersectingObject(Enemy.class) != null;
+    }
+
+    /**
+     * Fight the enemy
+     */
+    private void fightMonster() {
+        Enemy currentEnemy = (Enemy) getOneIntersectingObject(Enemy.class);
+        if (currentEnemy.isAlive()) {
+            takeDamage(currentEnemy.getDamage());
+            currentEnemy.takeDamage(damage);
+        } else {
+            removeTouching(currentEnemy.getClass());
+        }
+    }
+
     //TODO ALH: We need to be able to get information about the damage of Link!
 }
