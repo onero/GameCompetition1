@@ -39,7 +39,7 @@ public class ZeldaWorld extends ScrollWorld
         //Add Enemies
         for (int i = 0; i < 10; i++) {
             addObject(new Rat(5, 1), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
-            addObject(new Slime(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+            addObject(new Slime(8, 3), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
         }
     }
 }
