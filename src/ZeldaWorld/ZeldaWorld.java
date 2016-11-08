@@ -25,6 +25,7 @@ public class ZeldaWorld extends ScrollWorld
         for (int i = 0; i < 10; i++) {
             addObject(new Rock(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
             addObject(new Wall(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+            addObject(new Tree(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
             addObject(new WallWithEntrance(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
         }
         addObject(new Dungeon(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
@@ -43,7 +44,7 @@ public class ZeldaWorld extends ScrollWorld
         //Add Enemies
         for (int i = 0; i < 10; i++) {
             addObject(new Rat(5, 1), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
-            addObject(new Slime(8,3), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+            addObject(new Slime(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
         }
     }
 }
