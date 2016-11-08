@@ -1,6 +1,6 @@
 #Greenfoot
-**/*.ctxt
-src/ZeldaWorld/project.greenfoot
+*.ctxt
+*.greenfoot
 
 #Java
 **/*.class
@@ -15,3 +15,4 @@ src/ZeldaWorld/project.greenfoot
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+src/doc/
