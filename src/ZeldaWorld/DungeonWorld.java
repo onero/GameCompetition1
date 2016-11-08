@@ -32,10 +32,16 @@ public class DungeonWorld extends ScrollWorld
         
         //difference between CaveWalls is 30
         
-        addObject(new CaveWall(), 260, 260);
-        addObject(new CaveWall(), 260, 290);
-        addObject(new CaveWall(), 260, 320);
-        addObject(new CaveWall(), 260, 1710);
 
+        for( int i = 230; i < 1771; i+=30)
+        {
+            addObject(new CaveWall(), 230 , i);
+        }
+        
+        for(int i = 230; i < 1771; i+=30)
+        {
+            addObject(new CaveWall(), i, 230);
+        }
+        
     }
 }
