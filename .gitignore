@@ -1,6 +1,6 @@
 #Greenfoot
 **/*.ctxt
-**/*.greenfoot
+src/ZeldaWorld/project.greenfoot
 
 #Java
 **/*.class
