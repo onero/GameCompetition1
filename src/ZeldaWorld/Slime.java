@@ -8,8 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Slime extends Enemy
 {
-    //TODO:ALH This enemy needs a constructor to set its health & damage!
-    //TODO: ALH After setting its health & damage there will be an error in "ZeldaWorld" can you fix it?
+    public Slime(int health, int damage) 
+    {
+        super.health = health;
+        super.damage = damage;
+    }
     /**
      * Act - do whatever the Slime wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
