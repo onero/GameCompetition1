@@ -13,6 +13,7 @@ public class ZeldaWorld extends ScrollWorld
     public static CastleWorld castleWorld;
     private Random rand;
     private static Character link;
+    private Quest mainQuest;
     /**
      * Constructor for objects of class DemoWorld.
      */
@@ -23,30 +24,36 @@ public class ZeldaWorld extends ScrollWorld
         //Add worlds
         dungeonWorld = new DungeonWorld();
         castleWorld = new CastleWorld();
-
+        //Create objects
         createObjects();
+        //Add main player
         link = new Link(10, 5);
         addCameraFollower(link, 0, 0);
-
+        //Create the player information
+        addObject(new PlayerInfo(), 85, 15);
+        //Create bosses
         createBosses();
-
+        //Create enemies
         createEnemies();
-        
+        //Create quest
+        //TODO ALH: Add real quest
+        addObject(new Quest("SomeQuest", "This is some quest!"), 85, 25);
+
     }
 
     /**
      *Create the objects
      */
     private void createObjects() {
-                for(int i = 5; i < 2000; i+=210)
+        for(int i = 5; i < 2000; i+=210)
         {
             addObject(new Wall(), i , 80);
         }
-        
+
         for (int i = 0; i < 10; i++) {
             addObject(new Rock(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
             //addObject(new Wall(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
-            
+
         }
         addObject(new Dungeon(), 600, 600);
         addObject(new WallWithEntrance(), 430, 75);
@@ -56,14 +63,6 @@ public class ZeldaWorld extends ScrollWorld
      *Create the bosses
      */
     private void createBosses() {
-        
-        addObject(new Dungeon(), 600, 600); 
-        
-        addCameraFollower(new Link(10, 5), 0, 0);
-
-        //addObject(new FPS(), 85, 15); // FPS isn't a subclass of
-        // ScrollActor, so it will looklike it's a camera 
-        addObject(new PlayerInfo(), 85, 15);
         addObject(new JeppeTheForker(20, 6, "trident", 6),rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
         addObject(new Peter(15, 4, "sword", 4), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
     }
@@ -77,7 +76,7 @@ public class ZeldaWorld extends ScrollWorld
             addObject(new Slime(8, 3), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
         }
     }
-    
+
     /**
      * Get the current character
      */

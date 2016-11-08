@@ -36,7 +36,6 @@ public class PlayerInfo extends Actor
     private final void updateImage()
     {
         getImage().clear();
-        //TODO ALH: Get this to work with real data!
         GreenfootImage health = new GreenfootImage(HEALTH_PREFIX + ZeldaWorld.getPlayer().getHealth(), 25, textColor, null);
         GreenfootImage damage = new GreenfootImage(DAMAGE_PREFIX + ZeldaWorld.getPlayer().getDamage(), 25, textColor, null);
         getImage().drawImage(health, 1, 10);
