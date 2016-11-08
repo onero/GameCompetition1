@@ -15,7 +15,7 @@ public class CastleWorld extends ScrollWorld
      */
     public CastleWorld()
     {
-        super(600, 400, 1, 1500, 1500);
+        super(600, 400, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
         //TODO ALH: Add enemies and objects!
     }
 }
