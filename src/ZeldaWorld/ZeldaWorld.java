@@ -42,7 +42,7 @@ public class ZeldaWorld extends ScrollWorld
             addObject(new Wall(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
             addObject(new WallWithEntrance(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
         }
-        addObject(new Dungeon(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+        addObject(new Dungeon(), 600, 600);
     }
 
     /**
