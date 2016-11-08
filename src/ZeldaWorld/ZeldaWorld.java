@@ -17,7 +17,7 @@ public class ZeldaWorld extends ScrollWorld
      */
     public ZeldaWorld()
     {
-        super(2000, 2000, 1, GAME_WIDTH, GAME_HEIGHT);
+        super(600, 600, 1, GAME_WIDTH, GAME_HEIGHT);
         rand = new Random();
         //Add worlds
         dungeonWorld = new DungeonWorld();
