@@ -11,6 +11,7 @@ public abstract class Character extends ScrollActor
     protected String name;
     protected int health;
     protected int damage;
+    protected boolean isAlive = true;
     /**
      * Act - do whatever the Character wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -25,5 +26,22 @@ public abstract class Character extends ScrollActor
      */
     public void takeDamage(int damage) {
         health -= damage;
+    }
+    
+    /**
+     * Get damage of character
+     */
+    public int getDamage() {
+        return damage;
+    }
+    
+    /**
+     * Check if character is alive
+     */
+    public boolean isAlive() {
+        if (health <= 0) {
+            isAlive = false;
+        }
+        return isAlive;
     }
 }
