@@ -17,7 +17,7 @@ public class ZeldaWorld extends ScrollWorld
      */
     public ZeldaWorld()
     {
-        super(600, 600, 1, GAME_WIDTH, GAME_HEIGHT);
+        super(2000, 2000, 1, GAME_WIDTH, GAME_HEIGHT);
         rand = new Random();
         //Add worlds
         dungeonWorld = new DungeonWorld();
@@ -37,12 +37,18 @@ public class ZeldaWorld extends ScrollWorld
      *Create the objects
      */
     private void createObjects() {
+                for(int i = 5; i < 2000; i+=210)
+        {
+            addObject(new Wall(), i , 80);
+        }
+        
         for (int i = 0; i < 10; i++) {
             addObject(new Rock(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
-            addObject(new Wall(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
-            addObject(new WallWithEntrance(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+            //addObject(new Wall(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+            
         }
         addObject(new Dungeon(), 600, 600);
+        addObject(new WallWithEntrance(), 430, 75);
     }
 
     /**
