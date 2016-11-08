@@ -39,7 +39,9 @@ public class Quest extends Actor
     {
         getImage().clear();
         //TODO ALH: Get this to work with real data!
-        GreenfootImage quest = new GreenfootImage(questName, 25, textColor, null);
-        getImage().drawImage(quest, 2, 15);
+        GreenfootImage name = new GreenfootImage(questName, 25, textColor, null);
+        GreenfootImage description = new GreenfootImage(questDescription, 25, textColor, null);
+        getImage().drawImage(name, 0, 15);
+        getImage().drawImage(description, 0, 30);
     }
 }

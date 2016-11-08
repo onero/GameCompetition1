@@ -9,6 +9,8 @@ public class ZeldaWorld extends ScrollWorld
 {
     public static final int GAME_WIDTH = 2000;
     public static final int GAME_HEIGHT = 2000;
+    public static final int GAME_AREA = 1000;
+    public static final int GAME_AREA_MIN = 250;
     public static DungeonWorld dungeonWorld;
     public static CastleWorld castleWorld;
     private Random rand;
@@ -36,7 +38,7 @@ public class ZeldaWorld extends ScrollWorld
         createEnemies();
         //Create quest
         //TODO ALH: Add real quest
-        addObject(new Quest("SomeQuest", "This is some quest!"), 550, 15);
+        //addObject(new Quest("SomeQuest", "This is some quest!"), 500, 15);
 
     }
 
@@ -44,26 +46,40 @@ public class ZeldaWorld extends ScrollWorld
      *Create the objects
      */
     private void createObjects() {
-        for(int i = 5; i < 2000; i+=210)
+        //Top wall
+        for(int i = GAME_AREA_MIN; i < GAME_WIDTH - GAME_AREA_MIN; i += 210)
         {
-            addObject(new Wall(), i , 80);
+            addObject(new Wall(), i , GAME_AREA_MIN - 60);
         }
-
+        addObject(new WallWithEntrance(), 500, GAME_AREA_MIN - 60);
+        //Left side wall
+        for(int i = 350; i < GAME_WIDTH - GAME_AREA_MIN; i += 150)
+        {
+            addObject(new Wall(), 100, i);
+        }
+        //Buttom side wall
+        for(int i = GAME_AREA_MIN; i < GAME_WIDTH - GAME_AREA_MIN; i += 210)
+        {
+            addObject(new Wall(), i , GAME_WIDTH - GAME_AREA_MIN);
+        }
+        //Right side wall
+        for(int i = 350; i < GAME_WIDTH - GAME_AREA_MIN; i += 150)
+        {
+            addObject(new Wall(), GAME_WIDTH - 180, i);
+        }
+        //Add rocks
         for (int i = 0; i < 10; i++) {
-            addObject(new Rock(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
-            //addObject(new Wall(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
-
+            addObject(new Rock(), rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
         }
         addObject(new Dungeon(), 600, 600);
-        addObject(new WallWithEntrance(), 430, 75);
     }
 
     /**
      *Create the bosses
      */
     private void createBosses() {
-        addObject(new JeppeTheForker(20, 6, "trident", 6),rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
-        addObject(new Peter(15, 4, "sword", 4), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+        addObject(new JeppeTheForker(20, 6, "trident", 6),rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
+        addObject(new Peter(15, 4, "sword", 4), rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
     }
 
     /**
@@ -71,8 +87,8 @@ public class ZeldaWorld extends ScrollWorld
      */
     private void createEnemies() {
         for (int i = 0; i < 10; i++) {
-            addObject(new Rat(5, 1), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
-            addObject(new Slime(8, 3), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+            addObject(new Rat(5, 1), rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
+            addObject(new Slime(8, 3), rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
         }
     }
 
