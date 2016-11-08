@@ -16,6 +16,7 @@ public class DungeonWorld extends ScrollWorld
     public DungeonWorld()
     {
         super(600, 400, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
+        addCameraFollower(new Link(10, 5), 0, 0);
         //TODO ALH: Add enemies and objects!
     }
 }
