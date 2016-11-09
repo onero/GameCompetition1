@@ -11,11 +11,12 @@ public class ZeldaWorld extends ScrollWorld
     public static final int GAME_HEIGHT = 2000;
     public static final int GAME_AREA = 1000;
     public static final int GAME_AREA_MIN = 250;
-    public static DungeonWorld dungeonWorld;
-    public static CastleWorld castleWorld;
     private Random rand;
     private static Character link;
     private int ratKill;
+    public static DungeonWorld dungeonWorld;
+    private MusicPlayer musicPlayer;
+    public static GreenfootSound zeldaWorldSound;
     /**
      * Constructor for objects of class DemoWorld.
      */
@@ -23,9 +24,6 @@ public class ZeldaWorld extends ScrollWorld
     {
         super(600, 600, 1, GAME_WIDTH, GAME_HEIGHT);
         rand = new Random();
-        //Add worlds
-        dungeonWorld = new DungeonWorld();
-        castleWorld = new CastleWorld();
         //Create objects
         createObjects();
         //Add main player
@@ -33,7 +31,6 @@ public class ZeldaWorld extends ScrollWorld
         addCameraFollower(link, 0, 0);
         //Create the player information
         addObject(new PlayerInfo(), 85, 15);
-        //Create bosses
         
         //Create enemies
         createEnemies();
@@ -41,7 +38,9 @@ public class ZeldaWorld extends ScrollWorld
         //TODO ALH: Add real quest
         addObject(new Quest("Rats!", "Slay five rats!", "0 of 5"), 500, 30);
         ratKill = 0;
-
+        musicPlayer = new MusicPlayer();
+        zeldaWorldSound = new GreenfootSound(musicPlayer.getSound(1));
+        zeldaWorldSound.play();
     }
 
     /**

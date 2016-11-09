@@ -14,7 +14,9 @@ public class DungeonWorld extends ScrollWorld
     public static final int GAME_AREA = 1000;
     public static final int GAME_AREA_MIN = 250;
     Random rand = new Random();
-
+    public static CastleWorld castleWorld;
+    private MusicPlayer musicPlayer;
+    public static GreenfootSound dungeonWorldSound;
     /**
      * Constructor for objects of class DungeonWorld.
      *
@@ -32,9 +34,7 @@ public class DungeonWorld extends ScrollWorld
 
         addObject(new PlayerInfo(), 85, 15);
 
-            //difference between CaveWalls is 30
-
-        
+        //Difference between CaveWalls is 30
         for(int i = 110; i < 1771; i+=30)
         {
             addObject(new CaveWall(), 110 , i);
@@ -58,6 +58,10 @@ public class DungeonWorld extends ScrollWorld
         addObject(new CastleEntrance(), 1500, 1500);
         addObject(new Quest("Slimey!", "Slay five slimes!", "0/5"), 500, 30);
         addObject(new StigGood(10, 10), 1500, 300);
-
+        
+        //Add music
+        musicPlayer = new MusicPlayer();
+        dungeonWorldSound = new GreenfootSound(musicPlayer.getSound(2));
+        dungeonWorldSound.play();
     }
 }

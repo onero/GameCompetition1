@@ -13,6 +13,8 @@ public class CastleWorld extends ScrollWorld
     public static final int GAME_AREA = 1000;
     public static final int GAME_AREA_MIN = 250;
     Random rand = new Random();
+    private MusicPlayer musicPlayer;
+    public static GreenfootSound castleWorldSound;
     /**
      * Constructor for objects of class CastleWorld.
      *
@@ -46,5 +48,10 @@ public class CastleWorld extends ScrollWorld
         {
             addObject(new CaveWall(), 1770 , i);
         }
+        
+        //Add music
+        musicPlayer = new MusicPlayer();
+        castleWorldSound = new GreenfootSound(musicPlayer.getSound(3));
+        castleWorldSound.play();
     }
 }

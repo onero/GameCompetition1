@@ -15,14 +15,18 @@ public class MusicPlayer extends Actor
     {
         musicArray = new ArrayList();
         
-        musicArray.add(DESTINATION_PREFIX + "Castle" + ".mp3");
-        musicArray.add(DESTINATION_PREFIX + "Dungeon" + ".mp3");
-        musicArray.add(DESTINATION_PREFIX + "ZeldaOverWorld" + ".mp3");
         musicArray.add(DESTINATION_PREFIX + "TitleMusic" + ".mp3");
+        musicArray.add(DESTINATION_PREFIX + "ZeldaOverWorld" + ".mp3");
+        musicArray.add(DESTINATION_PREFIX + "Dungeon" + ".mp3");
+        musicArray.add(DESTINATION_PREFIX + "Castle" + ".mp3");
     }
-        
-        
     
+    /**
+     * Get sound
+     */
+    public String getSound(int position) {
+        return musicArray.get(position);
+    }
     
     /**
      * Act - do whatever the MusicPlayer wants to do. This method is called whenever
