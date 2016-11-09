@@ -28,6 +28,7 @@ public class PlayerInfo extends Actor
     public void act() 
     {
         updateImage();
+        
     }
     
     /**
@@ -36,6 +37,7 @@ public class PlayerInfo extends Actor
     private final void updateImage()
     {
         getImage().clear();
+        
         GreenfootImage health = new GreenfootImage(HEALTH_PREFIX + Link.getHeroHealth(), 25, textColor, null);
         GreenfootImage damage = new GreenfootImage(DAMAGE_PREFIX + ZeldaWorld.getPlayer().getDamage(), 25, textColor, null);
         getImage().drawImage(health, 1, 10);

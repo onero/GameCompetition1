@@ -5,7 +5,7 @@ import java.util.*;
  *
  * @author EASV2016 Group 12
  */
-public class ZeldaWorld extends ScrollWorld
+public class ZeldaWorld extends MasterWorld
 {
     public static final int GAME_WIDTH = 2000;
     public static final int GAME_HEIGHT = 2000;
@@ -17,6 +17,7 @@ public class ZeldaWorld extends ScrollWorld
     public static DungeonWorld dungeonWorld;
     private MusicPlayer musicPlayer;
     public static GreenfootSound zeldaWorldSound;
+
     /**
      * Constructor for objects of class DemoWorld.
      */
@@ -40,8 +41,10 @@ public class ZeldaWorld extends ScrollWorld
         musicPlayer = new MusicPlayer();
         zeldaWorldSound = new GreenfootSound(musicPlayer.getSound(1));
         zeldaWorldSound.play();
-        addObject(new Quest("Rats!", "Slay five rats!",Link.getKillCounter() + " of 5"), 500, 30);
+        quest = new Quest("Rats!", "Slay five rats!",Link.getKillCounter(),Rat.class);
+        addObject(quest, 500, 30);
     }
+
 
     /**
      *Create the objects

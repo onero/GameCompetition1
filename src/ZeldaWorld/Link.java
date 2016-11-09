@@ -108,6 +108,9 @@ public class Link extends Character
         if(currentEnemy.isAlive != true)
         {
             killCount++;
+            MasterWorld world = (MasterWorld)getWorld();
+            Quest quest = world.getQuest();
+            quest.sendEnemy(currentEnemy);
         }
     }
     

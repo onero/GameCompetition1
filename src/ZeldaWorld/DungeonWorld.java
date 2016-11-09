@@ -7,7 +7,7 @@ import java.util.*;
  * @author EASV2016 Group 12
  * @version (a version number or a date)
  */
-public class DungeonWorld extends ScrollWorld
+public class DungeonWorld extends MasterWorld
 {
     public static final int GAME_WIDTH = 2000;
     public static final int GAME_HEIGHT = 2000;
@@ -56,7 +56,8 @@ public class DungeonWorld extends ScrollWorld
         }
 
         addObject(new CastleEntrance(), 1500, 1500);
-        addObject(new Quest("Slimey!", "Slay five slimes!", "0/5"), 500, 30);
+        quest = new Quest("Slimey!", "Slay five slimes!", 0,Slime.class);
+        addObject(quest, 500, 30);
         addObject(new StigGood(10, 10), 1500, 300);
         
         //Add music
