@@ -51,25 +51,35 @@ public class ZeldaWorld extends MasterWorld
      */
     private void createObjects() {
         //Top wall
+                for(int i = GAME_AREA_MIN; i < GAME_WIDTH - GAME_AREA_MIN; i += 210)
+        {
+            addObject(new Tree(), i , GAME_AREA_MIN - 60);
+        }
         for(int i = GAME_AREA_MIN; i < GAME_WIDTH - GAME_AREA_MIN; i += 210)
         {
             addObject(new Wall(), i , GAME_AREA_MIN - 60);
         }
         addObject(new WallWithEntrance(), 500, GAME_AREA_MIN - 60);
         //Left side wall
-        for(int i = 350; i < GAME_WIDTH - GAME_AREA_MIN; i += 150)
+        for(int i = 250; i < GAME_WIDTH - GAME_AREA_MIN; i += 150)
         {
-            addObject(new Wall(), 100, i);
+            Wall sideWall = new Wall();
+            addObject(sideWall, 100, i);
+            sideWall.setRotation(sideWall.getRotation() - 90);
         }
         //Buttom side wall
-        for(int i = GAME_AREA_MIN; i < GAME_WIDTH - GAME_AREA_MIN; i += 210)
+        for(int i = GAME_AREA_MIN; i < GAME_WIDTH - GAME_AREA_MIN; i += 150)
         {
-            addObject(new Wall(), i , GAME_WIDTH - GAME_AREA_MIN);
+            Wall sideWall = new Wall();
+            addObject(sideWall, i , GAME_WIDTH - GAME_AREA_MIN);
+            sideWall.setRotation(sideWall.getRotation() - 180);
         }
         //Right side wall
         for(int i = 350; i < GAME_WIDTH - GAME_AREA_MIN; i += 150)
         {
-            addObject(new Wall(), GAME_WIDTH - 180, i);
+            Wall sideWall = new Wall();
+            addObject(sideWall, GAME_WIDTH - 180, i);
+            sideWall.setRotation(sideWall.getRotation() + 90);
         }
         //Add rocks
         for (int i = 0; i < 10; i++) {
@@ -82,9 +92,11 @@ public class ZeldaWorld extends MasterWorld
      *Create the Enemies
      */
     private void createEnemies() {
-        for (int i = 0; i < 10; i++) {
-            addObject(new Rat(5, 1), rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
-        }
+
+            addObject(new Rat(5, 1), 500, 500);
+            addObject(new Rat(5, 1), 500, 1000);
+            addObject(new Rat(5, 1), 500, 1500);
+
     }
 
     /**
