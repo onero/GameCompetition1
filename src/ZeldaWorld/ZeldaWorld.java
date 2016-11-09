@@ -23,7 +23,7 @@ public class ZeldaWorld extends MasterWorld
      */
     public ZeldaWorld()
     {
-        super(600, 600, 1, GAME_WIDTH, GAME_HEIGHT);
+        super(1000, 1000, 1, GAME_WIDTH, GAME_HEIGHT);
         rand = new Random();
         //Create objects
         createObjects();
@@ -51,11 +51,7 @@ public class ZeldaWorld extends MasterWorld
      */
     private void createObjects() {
         //Top wall
-                for(int i = GAME_AREA_MIN; i < GAME_WIDTH - GAME_AREA_MIN; i += 210)
-        {
-            addObject(new Tree(), i , GAME_AREA_MIN - 60);
-        }
-        for(int i = GAME_AREA_MIN; i < GAME_WIDTH - GAME_AREA_MIN; i += 210)
+        for(int i = GAME_AREA_MIN; i < GAME_WIDTH - GAME_AREA_MIN; i += 215)
         {
             addObject(new Wall(), i , GAME_AREA_MIN - 60);
         }
@@ -82,21 +78,44 @@ public class ZeldaWorld extends MasterWorld
             sideWall.setRotation(sideWall.getRotation() + 90);
         }
         //Add rocks
-        for (int i = 0; i < 10; i++) {
-            addObject(new Rock(), rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
+        addObject(new Rock(),1200, 600);
+        addObject(new Rock(),1400, 700);
+        addObject(new Rock(),1050, 1000);
+        // Trees
+        for(int i = 940 ; i < GAME_WIDTH - 300 ; i += 200)
+        { 
+            addObject(new Tree(), GAME_WIDTH - 1500, i);
+            addObject(new Tree(), GAME_WIDTH - 1250, i);
         }
-        addObject(new Dungeon(), 800, 800);
+        for(int i = 1140 ; i < GAME_WIDTH - 300 ; i += 200)
+        { 
+            addObject(new Tree(), GAME_WIDTH - 1000, i);
+            addObject(new Tree(), GAME_WIDTH - 750, i);
+            addObject(new Tree(), GAME_WIDTH - 500, i);
+            
+        }
+
+        for(int i = 700 ; i < 1600; i += 215)
+        { 
+            addObject(new Tree(), i , GAME_AREA_MIN + 100);
+        }
+        for(int i = 500 ; i < GAME_WIDTH - 1000 ; i += 200)
+        {
+            addObject(new Tree(), GAME_WIDTH - 350, i);
+        }
+
+        addObject(new Dungeon(), 300, 1100);
     }
 
     /**
      *Create the Enemies
      */
     private void createEnemies() {
-
-            addObject(new Rat(5, 1), 500, 500);
-            addObject(new Rat(5, 1), 500, 1000);
-            addObject(new Rat(5, 1), 500, 1500);
-
+            addObject(new Rat(5, 1), 1100, 900);
+            addObject(new Rat(5, 1), 1000, 800);
+            addObject(new Rat(5, 1), 1200, 700);
+            addObject(new Rat(5, 1), 600, 700);
+            addObject(new Rat(5, 1), 300, 1500);
     }
 
     /**

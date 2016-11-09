@@ -11,7 +11,7 @@ public class MusicPlayer extends Actor
     private final String DESTINATION_PREFIX = "sounds/";
     private ArrayList<String> musicArray;
     
-    public MusicPlayer()
+    //public MusicPlayer()
     {
         musicArray = new ArrayList();
         
@@ -19,6 +19,9 @@ public class MusicPlayer extends Actor
         musicArray.add(DESTINATION_PREFIX + "ZeldaOverWorld" + ".mp3");
         musicArray.add(DESTINATION_PREFIX + "Dungeon" + ".mp3");
         musicArray.add(DESTINATION_PREFIX + "Castle" + ".mp3");
+        musicArray.add(DESTINATION_PREFIX + "GetBigItem" + ".wav");
+        musicArray.add(DESTINATION_PREFIX + "BossHit" + ".wav");
+        musicArray.add(DESTINATION_PREFIX + "ItemPickUp" + ".wav");
     }
     
     /**
