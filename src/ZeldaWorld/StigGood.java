@@ -8,8 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StigGood extends Guardian
 {
-    public StigGood(int protection) {
+    public StigGood(int protection, int health) {
         super.protection = protection;
+        super.health = health;
     }
     /**
      * Act - do whatever the StigGood wants to do. This method is called whenever

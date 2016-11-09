@@ -8,8 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Knight extends Guardian
 {
-    public Knight(int protection) {
+    public Knight(int protection, int health) {
         super.protection = protection;
+        super.health = health;
     }
     /**
      * Act - do whatever the Knight wants to do. This method is called whenever

@@ -23,7 +23,9 @@ public class CastleWorld extends ScrollWorld
         addCameraFollower(new Link(10, 5), 0, 0);
         addObject(new PlayerInfo(), 85, 15);
         addObject(new Quest("The Boss!", "Slay Jeppe the Forker!", "Find the guardian!"), 450, 30);
+        addObject(new Knight(10, 10), 500, 200);
         addObject(new JeppeTheForker(20, 6, "trident", 6),600, 300);
+     
         //TODO ALH: Add enemies and objects!
         for(int i = 110; i < 1771; i+=30)
         {

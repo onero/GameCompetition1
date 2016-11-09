@@ -57,6 +57,7 @@ public class DungeonWorld extends ScrollWorld
 
         addObject(new CastleEntrance(), 1500, 1500);
         addObject(new Quest("Slimey!", "Slay five slimes!", "0/5"), 500, 30);
+        addObject(new StigGood(10, 10), 1500, 300);
 
     }
 }
