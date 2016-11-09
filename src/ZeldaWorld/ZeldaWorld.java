@@ -15,6 +15,7 @@ public class ZeldaWorld extends ScrollWorld
     public static CastleWorld castleWorld;
     private Random rand;
     private static Character link;
+    private int ratKill;
     /**
      * Constructor for objects of class DemoWorld.
      */
@@ -38,7 +39,8 @@ public class ZeldaWorld extends ScrollWorld
         createEnemies();
         //Create quest
         //TODO ALH: Add real quest
-        addObject(new Quest("Rats!", "Slay the rats!"), 500, 30);
+        addObject(new Quest("Rats!", "Slay five rats!", "0/5"), 500, 30);
+        ratKill = 0;
 
     }
 

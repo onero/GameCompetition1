@@ -21,7 +21,7 @@ public class DungeonWorld extends ScrollWorld
      */
     public DungeonWorld()
     {
-        super(600, 400, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
+        super(600, 600, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
         addCameraFollower(new Link(10, 5), 0, 0);
         for(int i = 0; i < 10; i++)
         {
@@ -56,7 +56,7 @@ public class DungeonWorld extends ScrollWorld
         }
 
         addObject(new CastleEntrance(), 1500, 1500);
-        addObject(new Quest("Slimey!", "Slay the slimes!"), 500, 30);
+        addObject(new Quest("Slimey!", "Slay five slimes!", "0/5"), 500, 30);
 
     }
 }

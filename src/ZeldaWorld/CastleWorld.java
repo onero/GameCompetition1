@@ -19,10 +19,30 @@ public class CastleWorld extends ScrollWorld
      */
     public CastleWorld()
     {
-        super(600, 400, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
+        super(600, 600, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
         addCameraFollower(new Link(10, 5), 0, 0);
-        addObject(new Quest("The Boss!", "Slay Jeppe the Forker!"), 450, 30);
+        addObject(new PlayerInfo(), 85, 15);
+        addObject(new Quest("The Boss!", "Slay Jeppe the Forker!", "Find the guardian!"), 450, 30);
         addObject(new JeppeTheForker(20, 6, "trident", 6),600, 300);
         //TODO ALH: Add enemies and objects!
+        for(int i = 110; i < 1771; i+=30)
+        {
+            addObject(new CaveWall(), 110 , i);
+        }
+
+        for(int i = 110; i < 1771; i+=30)
+        {
+            addObject(new CaveWall(), i, 110);
+        }
+
+        for(int i = 110; i < 1771; i+=30)
+        {
+            addObject(new CaveWall(), i, 1770);
+        }
+
+        for(int i = 110; i < 1771; i+=30)
+        {
+            addObject(new CaveWall(), 1770 , i);
+        }
     }
 }

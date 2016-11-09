@@ -11,15 +11,17 @@ public class Quest extends Actor
     private static final Color textColor = Color.BLACK;
     private String questName;
     private String questDescription;
+    private String questAmount;
     
     /**
      * Creates the quest based on information parameters
      */
-    public Quest(String name, String description) {
+    public Quest(String name, String description, String amount) {
         questName = name;
         questDescription = description;
+        questAmount = amount;
         
-        setImage(new GreenfootImage(200, 75));
+        setImage(new GreenfootImage(200, 90));
         GreenfootImage image = getImage();
     }
     
@@ -41,7 +43,9 @@ public class Quest extends Actor
         //TODO ALH: Get this to work with real data!
         GreenfootImage name = new GreenfootImage(questName, 25, textColor, null);
         GreenfootImage description = new GreenfootImage(questDescription, 25, textColor, null);
+        GreenfootImage amount = new GreenfootImage (questAmount, 25, textColor, null);
         getImage().drawImage(name, 0, 15);
         getImage().drawImage(description, 0, 30);
+        getImage().drawImage(amount, 0, 45);
     }
 }
