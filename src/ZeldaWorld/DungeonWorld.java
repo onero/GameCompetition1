@@ -32,9 +32,9 @@ public class DungeonWorld extends ScrollWorld
 
         addObject(new PlayerInfo(), 85, 15);
 
-        //difference between CaveWalls is 30
+            //difference between CaveWalls is 30
 
-
+        
         for(int i = 110; i < 1771; i+=30)
         {
             addObject(new CaveWall(), 110 , i);
@@ -56,6 +56,7 @@ public class DungeonWorld extends ScrollWorld
         }
 
         addObject(new CastleEntrance(), 1500, 1500);
+        addObject(new Quest("Slimey!", "Slay the slimes!"), 500, 30);
 
     }
 }

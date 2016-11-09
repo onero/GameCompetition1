@@ -33,7 +33,7 @@ public class ZeldaWorld extends ScrollWorld
         //Create the player information
         addObject(new PlayerInfo(), 85, 15);
         //Create bosses
-        createBosses();
+        
         //Create enemies
         createEnemies();
         //Create quest
@@ -72,14 +72,6 @@ public class ZeldaWorld extends ScrollWorld
             addObject(new Rock(), rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
         }
         addObject(new Dungeon(), 600, 600);
-    }
-
-    /**
-     *Create the bosses
-     */
-    private void createBosses() {
-        addObject(new JeppeTheForker(20, 6, "trident", 6),rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
-        addObject(new Peter(15, 4, "sword", 4), rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
     }
 
     /**
