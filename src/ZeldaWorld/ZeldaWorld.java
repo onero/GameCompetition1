@@ -38,7 +38,7 @@ public class ZeldaWorld extends ScrollWorld
         createEnemies();
         //Create quest
         //TODO ALH: Add real quest
-        //addObject(new Quest("SomeQuest", "This is some quest!"), 500, 15);
+        addObject(new Quest("SomeQuest", "This is some quest!"), 500, 15);
 
     }
 
