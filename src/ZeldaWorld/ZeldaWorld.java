@@ -38,7 +38,7 @@ public class ZeldaWorld extends ScrollWorld
         createEnemies();
         //Create quest
         //TODO ALH: Add real quest
-        addObject(new Quest("SomeQuest", "This is some quest!"), 500, 15);
+        addObject(new Quest("Rats!", "Slay the rats!"), 500, 30);
 
     }
 
@@ -88,7 +88,6 @@ public class ZeldaWorld extends ScrollWorld
     private void createEnemies() {
         for (int i = 0; i < 10; i++) {
             addObject(new Rat(5, 1), rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
-            addObject(new Slime(8, 3), rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
         }
     }
 

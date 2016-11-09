@@ -19,7 +19,7 @@ public class Quest extends Actor
         questName = name;
         questDescription = description;
         
-        setImage(new GreenfootImage(200, 50));
+        setImage(new GreenfootImage(200, 75));
         GreenfootImage image = getImage();
     }
     

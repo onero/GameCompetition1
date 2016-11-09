@@ -9,6 +9,10 @@ import java.util.*;
  */
 public class DungeonWorld extends ScrollWorld
 {
+    public static final int GAME_WIDTH = 2000;
+    public static final int GAME_HEIGHT = 2000;
+    public static final int GAME_AREA = 1000;
+    public static final int GAME_AREA_MIN = 250;
     Random rand = new Random();
 
     /**
@@ -21,7 +25,7 @@ public class DungeonWorld extends ScrollWorld
         addCameraFollower(new Link(10, 5), 0, 0);
         for(int i = 0; i < 10; i++)
         {
-            addObject(new Rat(5, 1), rand.nextInt(ZeldaWorld.GAME_WIDTH), rand.nextInt(ZeldaWorld.GAME_HEIGHT));
+            addObject(new Slime(8, 3), rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
         }
 
         addCameraFollower(new Link(10, 5), 0, 0);
