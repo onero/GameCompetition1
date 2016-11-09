@@ -39,8 +39,9 @@ public class ZeldaWorld extends ScrollWorld
         createEnemies();
         //Create quest
         //TODO ALH: Add real quest
-        addObject(new Quest("Rats!", "Slay five rats!", "0 of 5"), 500, 30);
         ratKill = 0;
+        addObject(new Quest("Rats!", "Slay five rats!",Link.getKillCounter() + " of 5"), 500, 30);
+        
 
     }
 
@@ -73,7 +74,7 @@ public class ZeldaWorld extends ScrollWorld
         for (int i = 0; i < 10; i++) {
             addObject(new Rock(), rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
         }
-        addObject(new Dungeon(), 600, 600);
+        addObject(new Dungeon(), 800, 800);
     }
 
     /**
@@ -91,4 +92,6 @@ public class ZeldaWorld extends ScrollWorld
     public static Character getPlayer() {
         return link;
     }
+    
+    
 }
