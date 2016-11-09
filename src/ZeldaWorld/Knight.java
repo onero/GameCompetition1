@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Knight here.
  * 
- * @author (your name) 
+ * @author EASV2016 Group 12 
  * @version (a version number or a date)
  */
 public class Knight extends Guardian
@@ -17,6 +17,8 @@ public class Knight extends Guardian
      */
     public void act() 
     {
-        // Add your action code here.
+        if (isNearHero()) {
+           followHero();
+        }
     }    
 }

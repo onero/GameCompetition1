@@ -4,18 +4,20 @@ import greenfoot.*;
  * It moves to face your mouse cursor, and it can move
  * back and forward.
  * 
- * @author EASV2016 Group 12t
+ * @author EASV2016 Group 12
  * @version 1.0
  */
 public class Link extends Character
 {
     /** The number of cells we move forward and backword */
     private static final int MOVE_AMOUNT = 5;
+    private static boolean isGuarded = false;
+    private static int heroHealth;
     /**
      * Create the main character Link
      */
     public Link(int health, int damage) {
-        super.health = health;
+        heroHealth = health;
         super.damage = damage;
     }
 
@@ -57,6 +59,13 @@ public class Link extends Character
     }
 
     /**
+     * Gets the heros health
+     */
+    public static int getHeroHealth() {
+        return heroHealth;
+    }
+
+    /**
      * Check for monster in the vicinity of Link
      */
     private boolean enemyIsNear() {
@@ -76,5 +85,13 @@ public class Link extends Character
         }
     }
 
-    //TODO ALH: We need to be able to get information about the damage of Link!
+    /**
+     * When a guardian is near, update isGuarded
+     */
+    public static void setGuarded(boolean guardedStatus, int protection) {
+        if (isGuarded != true) {
+            isGuarded = guardedStatus;
+            heroHealth += protection;
+        }
+    }
 }
