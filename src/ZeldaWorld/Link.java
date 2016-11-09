@@ -13,12 +13,14 @@ public class Link extends Character
     private static final int MOVE_AMOUNT = 5;
     private static boolean isGuarded = false;
     private static int heroHealth;
+    public static int killCount;
     /**
      * Create the main character Link
      */
     public Link(int health, int damage) {
         heroHealth = health;
         super.damage = damage;
+        killCount = 0;
     }
 
     /**
@@ -85,6 +87,7 @@ public class Link extends Character
             takeDamage(currentEnemy.getDamage());
             currentEnemy.takeDamage(damage);
         } else {
+            getKill();
             removeTouching(currentEnemy.getClass());
         }
     }
@@ -97,5 +100,19 @@ public class Link extends Character
             isGuarded = guardedStatus;
             heroHealth += protection;
         }
+    }
+    
+    private void getKill()
+    {
+        Enemy currentEnemy = (Enemy) getOneIntersectingObject(Enemy.class);
+        if(currentEnemy.isAlive != true)
+        {
+            killCount++;
+        }
+    }
+    
+    public static int getKillCounter()
+    {
+        return killCount;
     }
 }
