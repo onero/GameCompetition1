@@ -20,4 +20,5 @@ public class Rat extends Enemy
     {
         // Add your action code here.
     }    
+
 }
