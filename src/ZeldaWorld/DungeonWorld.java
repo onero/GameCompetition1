@@ -85,8 +85,6 @@ public class DungeonWorld extends MasterWorld
         {
             addObject(new CaveWall(), i , 1000);
         }
-        
-        addObject(new CastleEntrance(), 1500, 1500);
     }
     
     /**
