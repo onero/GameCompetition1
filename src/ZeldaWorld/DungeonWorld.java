@@ -26,11 +26,11 @@ public class DungeonWorld extends MasterWorld
         addObject(new PlayerInfo(), 85, 15);
         
         //Add Enemies
-            addObject(new Slime(8, 3), 300, 500);
-            addObject(new Slime(8, 3), 300, 1000);
-            addObject(new Slime(8, 3), 900, 500);
-            addObject(new Slime(8, 3), 1200, 800);
-            addObject(new Slime(8, 3), 1700, 1600);
+            addObject(new Slime(5, 3), 300, 500);
+            addObject(new Slime(5, 3), 300, 1000);
+            addObject(new Slime(5, 3), 900, 500);
+            addObject(new Slime(5, 3), 1200, 800);
+            addObject(new Slime(5, 3), 1700, 1600);
         
         addObjects();
         

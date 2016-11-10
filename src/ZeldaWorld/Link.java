@@ -11,7 +11,7 @@ public class Link extends Character
 {
     //The number of cells we move forward and backword 
     private static final int MOVE_AMOUNT = 5;
-    private static boolean isGuarded = false;
+    private static boolean isGuarded;
     private static int heroHealth;
     /**
      * Create the main character Link
@@ -19,6 +19,7 @@ public class Link extends Character
     public Link(int health, int damage) {
         heroHealth = health;
         super.damage = damage;
+        isGuarded = false;
     }
 
     /**
@@ -60,6 +61,8 @@ public class Link extends Character
             DungeonWorld.castleWorld = new CastleWorld();
             Greenfoot.setWorld(DungeonWorld.castleWorld);
         }
+        
+        checkPlayerDeath();
     }
 
     /**
@@ -82,11 +85,28 @@ public class Link extends Character
     private void fightMonster() {
         Enemy currentEnemy = (Enemy) getOneIntersectingObject(Enemy.class);
         if (currentEnemy.isAlive()) {
-            takeDamage(currentEnemy.getDamage());
+            takeHeroDamage(currentEnemy.getDamage());
             currentEnemy.takeDamage(damage);
         } else {
             getKill();
             removeTouching(currentEnemy.getClass());
+        }
+    }
+    
+    /**
+     * Hero takes damage
+     */
+    private void takeHeroDamage(int damage) {
+        heroHealth -= damage;
+    }
+    
+    /**
+     * Check player death
+     */
+    private void checkPlayerDeath() {
+        if (heroHealth <= 0) {
+            MasterWorld.gameOverWorld = new GameOverWorld();
+            Greenfoot.setWorld(MasterWorld.gameOverWorld);
         }
     }
 

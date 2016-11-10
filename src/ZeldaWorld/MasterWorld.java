@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class MasterWorld extends ScrollWorld
 {
+    protected static GameOverWorld gameOverWorld;
     protected Quest quest;
     /**
      * Constructor for objects of class MasterWorld.
