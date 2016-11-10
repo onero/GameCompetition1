@@ -9,8 +9,6 @@ import java.util.*;
 public class CastleWorld extends MasterWorld
 {
     Random rand = new Random();
-    private MusicPlayer musicPlayer;
-    public static GreenfootSound castleWorldSound;
     /**
      * Constructor for objects of class CastleWorld.
      *
@@ -37,9 +35,7 @@ public class CastleWorld extends MasterWorld
         addObjects();
         
         //Add music
-        musicPlayer = new MusicPlayer();
-        castleWorldSound = new GreenfootSound(musicPlayer.getSound(3));
-        castleWorldSound.play();
+        MasterWorld.castleWorldSound.play();
     }
     
     /**

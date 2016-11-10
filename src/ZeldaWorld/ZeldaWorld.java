@@ -16,8 +16,6 @@ public class ZeldaWorld extends MasterWorld
     private Random rand;
     private static Character link;
     public static DungeonWorld dungeonWorld;
-    private MusicPlayer musicPlayer;
-    public static GreenfootSound zeldaWorldSound;
 
     /**
      * Constructor for objects of class DemoWorld.
@@ -38,9 +36,8 @@ public class ZeldaWorld extends MasterWorld
         //Create enemies
         createEnemies();
         //Create quest
-        musicPlayer = new MusicPlayer();
-        zeldaWorldSound = new GreenfootSound(musicPlayer.getSound(1));
-        zeldaWorldSound.play();
+        MasterWorld.zeldaWorldSound.play();
+        
         quest = new Quest("Rats!", "Slay five rats!", 5, Rat.class);
         addObject(quest, 500, 30);
     }

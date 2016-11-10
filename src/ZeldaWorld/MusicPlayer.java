@@ -19,8 +19,8 @@ public class MusicPlayer extends Actor
         musicArray.add(DESTINATION_PREFIX + "ZeldaOverWorld" + ".mp3");
         musicArray.add(DESTINATION_PREFIX + "Dungeon" + ".mp3");
         musicArray.add(DESTINATION_PREFIX + "Castle" + ".mp3");
-        musicArray.add(DESTINATION_PREFIX + "GetBigItem" + ".wav");
-        musicArray.add(DESTINATION_PREFIX + "BossHit" + ".wav");
+        musicArray.add(DESTINATION_PREFIX + "Win" + ".wav");
+        musicArray.add(DESTINATION_PREFIX + "Loose" + ".wav");
         musicArray.add(DESTINATION_PREFIX + "ItemPickUp" + ".wav");
     }
     
@@ -29,6 +29,13 @@ public class MusicPlayer extends Actor
      */
     public String getSound(int position) {
         return musicArray.get(position);
+    }
+    
+    /**
+     * Get MusicArray
+     */
+    public ArrayList<String> getMusicArray() {
+        return musicArray;
     }
     
     /**

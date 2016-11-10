@@ -12,8 +12,6 @@ public class DungeonWorld extends MasterWorld
     Random rand = new Random();
     private boolean castleEntranceCreated = false;
     public static CastleWorld castleWorld;
-    private MusicPlayer musicPlayer;
-    public static GreenfootSound dungeonWorldSound;
     /**
      * Constructor for objects of class DungeonWorld.
      *
@@ -43,9 +41,7 @@ public class DungeonWorld extends MasterWorld
         
         
         //Add music
-        musicPlayer = new MusicPlayer();
-        dungeonWorldSound = new GreenfootSound(musicPlayer.getSound(2));
-        dungeonWorldSound.play();
+        MasterWorld.dungeonWorldSound.play();
     }
     
     /**

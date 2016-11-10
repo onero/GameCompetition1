@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GameOverWorld extends MasterWorld
 {
-
+    private MusicPlayer musicPlayer;
+    public static GreenfootSound looseSound;
     /**
      * Constructor for objects of class GameOverWorld.
      * 
@@ -16,6 +17,9 @@ public class GameOverWorld extends MasterWorld
     public GameOverWorld()
     {
         super(ZeldaWorld.PLAYABLE_AREA, ZeldaWorld.PLAYABLE_AREA, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
+        musicPlayer = new MusicPlayer();
+        looseSound = new GreenfootSound(musicPlayer.getSound(5));
+        looseSound.play();
     }
 
     public void act(){

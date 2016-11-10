@@ -46,7 +46,7 @@ public class Link extends Character
         }
         //If character enters dungeon set world to DungeonWorld
         if (isTouching(Dungeon.class)) {
-            ZeldaWorld.zeldaWorldSound.stop();
+            MasterWorld.stopSound();
             ZeldaWorld.dungeonWorld = new DungeonWorld();
             Greenfoot.setWorld(ZeldaWorld.dungeonWorld);
         }
@@ -57,7 +57,7 @@ public class Link extends Character
 
         //If character enters castle set world to CastleWorld
         if (isTouching(CastleEntrance.class)) {
-            DungeonWorld.dungeonWorldSound.stop();
+            MasterWorld.stopSound();
             DungeonWorld.castleWorld = new CastleWorld();
             Greenfoot.setWorld(DungeonWorld.castleWorld);
         }
@@ -101,6 +101,7 @@ public class Link extends Character
      */
     private void killedLastBoss() {
         MasterWorld.winWorld = new WinWorld();
+        MasterWorld.stopSound();
         Greenfoot.setWorld(MasterWorld.winWorld);
     }
     
@@ -117,6 +118,7 @@ public class Link extends Character
     private void checkPlayerDeath() {
         if (heroHealth <= 0) {
             MasterWorld.gameOverWorld = new GameOverWorld();
+            MasterWorld.stopSound();
             Greenfoot.setWorld(MasterWorld.gameOverWorld);
         }
     }
