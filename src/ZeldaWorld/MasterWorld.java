@@ -17,6 +17,8 @@ public abstract class MasterWorld extends ScrollWorld
     public static GreenfootSound zeldaWorldSound;
     public static GreenfootSound dungeonWorldSound;
     public static GreenfootSound castleWorldSound;
+    public static GreenfootSound winSound;
+    public static GreenfootSound looseSound;
     
     protected Quest quest;
     /**
@@ -30,6 +32,8 @@ public abstract class MasterWorld extends ScrollWorld
         zeldaWorldSound = new GreenfootSound(musicPlayer.getSound(1));
         dungeonWorldSound = new GreenfootSound(musicPlayer.getSound(2));
         castleWorldSound = new GreenfootSound(musicPlayer.getSound(3));
+        winSound = new GreenfootSound(musicPlayer.getSound(4));
+        looseSound = new GreenfootSound(musicPlayer.getSound(5));
     }
     
     public Quest getQuest() {
@@ -55,6 +59,12 @@ public abstract class MasterWorld extends ScrollWorld
         }
         if (castleWorldSound.isPlaying()) {
             castleWorldSound.stop();
+        }
+        if (winSound.isPlaying()) {
+            winSound.stop();
+        }
+        if (looseSound.isPlaying()) {
+            looseSound.stop();
         }
     }
 }

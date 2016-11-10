@@ -8,8 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class WinWorld extends MasterWorld
 {
-    private MusicPlayer musicPlayer;
-    public static GreenfootSound winSound;
     /**
      * Constructor for objects of class WinWorld.
      * 
@@ -17,9 +15,7 @@ public class WinWorld extends MasterWorld
     public WinWorld()
     {
         super(ZeldaWorld.PLAYABLE_AREA, ZeldaWorld.PLAYABLE_AREA, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
-        musicPlayer = new MusicPlayer();
-        winSound = new GreenfootSound(musicPlayer.getSound(4));
-        winSound.play();
+        MasterWorld.winSound.play();
     }
 
     public void act(){
