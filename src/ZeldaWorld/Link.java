@@ -89,8 +89,19 @@ public class Link extends Character
             currentEnemy.takeDamage(damage);
         } else {
             getKill();
+            if  (currentEnemy.getClass().equals(JeppeTheForker.class)) {
+                killedLastBoss();
+            }
             removeTouching(currentEnemy.getClass());
         }
+    }
+    
+    /**
+     * Killed last boss
+     */
+    private void killedLastBoss() {
+        MasterWorld.winWorld = new WinWorld();
+        Greenfoot.setWorld(MasterWorld.winWorld);
     }
     
     /**

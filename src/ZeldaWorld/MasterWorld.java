@@ -12,6 +12,7 @@ public abstract class MasterWorld extends ScrollWorld
     protected static DungeonWorld dungeonWorld;
     protected static CastleWorld castleWorld;
     protected static GameOverWorld gameOverWorld;
+    protected static WinWorld winWorld;
     
     protected Quest quest;
     /**
