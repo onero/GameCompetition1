@@ -2,78 +2,128 @@ import greenfoot.*;
 import java.util.*;
 
 /**
- * 
+ *
  * @author EASV2016 Group 12
  */
-public class ZeldaWorld extends ScrollWorld
+public class ZeldaWorld extends MasterWorld
 {
     public static final int GAME_WIDTH = 2000;
     public static final int GAME_HEIGHT = 2000;
-    public static DungeonWorld dungeonWorld;
-    public static CastleWorld castleWorld;
+    public static final int GAME_AREA = 1000;
+    public static final int GAME_AREA_MIN = 250;
     private Random rand;
+    private static Character link;
+    private int ratKill;
+    public static DungeonWorld dungeonWorld;
+    private MusicPlayer musicPlayer;
+    public static GreenfootSound zeldaWorldSound;
+
     /**
      * Constructor for objects of class DemoWorld.
      */
     public ZeldaWorld()
     {
-        super(600, 600, 1, GAME_WIDTH, GAME_HEIGHT);
+        super(1000, 1000, 1, GAME_WIDTH, GAME_HEIGHT);
         rand = new Random();
-        //Add worlds
-        dungeonWorld = new DungeonWorld();
-        castleWorld = new CastleWorld();
-
+        //Create objects
         createObjects();
+        //Add main player
+        link = new Link(10, 5);
+        addCameraFollower(link, 0, 0);
+        //Create the player information
+        addObject(new PlayerInfo(), 85, 15);
 
-        addCameraFollower(new Link(10, 5), 0, 0);
-
-        createBosses();
-
+        //Create enemies
         createEnemies();
-        
+        //Create quest
+        //TODO ALH: Add real quest
+        ratKill = 0;
+        musicPlayer = new MusicPlayer();
+        zeldaWorldSound = new GreenfootSound(musicPlayer.getSound(1));
+        zeldaWorldSound.play();
+        quest = new Quest("Rats!", "Slay five rats!",Link.getKillCounter(),Rat.class);
+        addObject(quest, 500, 30);
     }
+
 
     /**
      *Create the objects
      */
     private void createObjects() {
-                for(int i = 5; i < 2000; i+=210)
+        //Top wall
+        for(int i = GAME_AREA_MIN; i < GAME_WIDTH - GAME_AREA_MIN; i += 215)
         {
-            addObject(new Wall(), i , 80);
+            addObject(new Wall(), i , GAME_AREA_MIN - 60);
         }
-        
-        for (int i = 0; i < 10; i++) {
-            addObject(new Rock(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
-            //addObject(new Wall(), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+        addObject(new WallWithEntrance(), 500, GAME_AREA_MIN - 60);
+        //Left side wall
+        for(int i = 250; i < GAME_WIDTH - GAME_AREA_MIN; i += 150)
+        {
+            Wall sideWall = new Wall();
+            addObject(sideWall, 100, i);
+            sideWall.setRotation(sideWall.getRotation() - 90);
+        }
+        //Buttom side wall
+        for(int i = GAME_AREA_MIN; i < GAME_WIDTH - GAME_AREA_MIN; i += 150)
+        {
+            Wall sideWall = new Wall();
+            addObject(sideWall, i , GAME_WIDTH - GAME_AREA_MIN);
+            sideWall.setRotation(sideWall.getRotation() - 180);
+        }
+        //Right side wall
+        for(int i = 350; i < GAME_WIDTH - GAME_AREA_MIN; i += 150)
+        {
+            Wall sideWall = new Wall();
+            addObject(sideWall, GAME_WIDTH - 180, i);
+            sideWall.setRotation(sideWall.getRotation() + 90);
+        }
+        //Add rocks
+        addObject(new Rock(),1200, 600);
+        addObject(new Rock(),1400, 700);
+        addObject(new Rock(),1050, 1000);
+        // Trees
+        for(int i = 940 ; i < GAME_WIDTH - 300 ; i += 200)
+        { 
+            addObject(new Tree(), GAME_WIDTH - 1500, i);
+            addObject(new Tree(), GAME_WIDTH - 1250, i);
+        }
+        for(int i = 1140 ; i < GAME_WIDTH - 300 ; i += 200)
+        { 
+            addObject(new Tree(), GAME_WIDTH - 1000, i);
+            addObject(new Tree(), GAME_WIDTH - 750, i);
+            addObject(new Tree(), GAME_WIDTH - 500, i);
             
         }
-        addObject(new Dungeon(), 600, 600);
-        addObject(new WallWithEntrance(), 430, 75);
-    }
 
-    /**
-     *Create the bosses
-     */
-    private void createBosses() {
-        
-        addObject(new Dungeon(), 600, 600); 
-        
-        addCameraFollower(new Link(10, 5), 0, 0);
+        for(int i = 700 ; i < 1600; i += 215)
+        { 
+            addObject(new Tree(), i , GAME_AREA_MIN + 100);
+        }
+        for(int i = 500 ; i < GAME_WIDTH - 1000 ; i += 200)
+        {
+            addObject(new Tree(), GAME_WIDTH - 350, i);
+        }
 
-        //addObject(new FPS(), 85, 15); // FPS isn't a subclass of
-        // ScrollActor, so it will looklike it's a camera 
-        addObject(new PlayerInfo(), 85, 15);
-        addObject(new JeppeTheForker(20, 6, "trident", 6),rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
-        addObject(new Peter(15, 4, "sword", 4), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
+        addObject(new Dungeon(), 300, 1100);
     }
 
     /**
      *Create the Enemies
      */
     private void createEnemies() {
-        for (int i = 0; i < 10; i++) {
-            addObject(new Rat(5, 1), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
-            addObject(new Slime(8, 3), rand.nextInt(GAME_WIDTH), rand.nextInt(GAME_HEIGHT));
-        }
+            addObject(new Rat(5, 1), 1100, 900);
+            addObject(new Rat(5, 1), 1000, 800);
+            addObject(new Rat(5, 1), 1200, 700);
+            addObject(new Rat(5, 1), 600, 700);
+            addObject(new Rat(5, 1), 300, 1500);
     }
+
+    /**
+     * Get the current character
+     */
+    public static Character getPlayer() {
+        return link;
+    }
+
+
 }

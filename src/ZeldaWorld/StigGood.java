@@ -3,13 +3,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class StigGood here.
  * 
- * @author (your name) 
+ * @author EASV2016 Group 12
  * @version (a version number or a date)
  */
 public class StigGood extends Guardian
 {
-    public StigGood(int protection) {
+    public StigGood(int protection, int health) {
         super.protection = protection;
+        super.health = health;
     }
     /**
      * Act - do whatever the StigGood wants to do. This method is called whenever
@@ -17,6 +18,8 @@ public class StigGood extends Guardian
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
+        if (isNearHero()) {
+           followHero();
+        }
+    }
 }

@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Guardian here.
  * 
- * @author (your name) 
+ * @author EASV2016 Group 12 
  * @version (a version number or a date)
  */
 public abstract class Guardian extends Character
@@ -15,6 +15,29 @@ public abstract class Guardian extends Character
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
+        
+    }
+    
+    /**
+     * Check if guardian is near Hero
+     */
+    public boolean isNearHero() {
+        return isTouching(Link.class);
+    }
+    
+    /**
+     * Follow the Hero
+     */
+    public void followHero() {
+        Link hero = (Link) getOneIntersectingObject(Link.class);
+        setLocation(hero.getX() - 35, hero.getY());
+        Link.setGuarded(true, protection);
+    }
+    
+    /**
+     * Get the protection amount
+     */
+    public int getProtection() {
+        return protection;
+    }
 }
