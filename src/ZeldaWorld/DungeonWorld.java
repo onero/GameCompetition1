@@ -38,7 +38,9 @@ public class DungeonWorld extends MasterWorld
         quest = new Quest("Slimey!", "Slay five slimes!", 5 , Slime.class);
         addObject(quest, 500, 30);
         //Add Guardian
-        addObject(new StigGood(10, 10), 1500, 300);
+        addObject(new StigGood(10, 10), 300, 800);
+        addObject(new StigEvil(10, 10, "", 0), 600, 200);
+        
         
         //Add music
         musicPlayer = new MusicPlayer();
