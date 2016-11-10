@@ -11,6 +11,7 @@ public class ZeldaWorld extends MasterWorld
     public static final int GAME_HEIGHT = 2000;
     public static final int GAME_AREA = 1000;
     public static final int GAME_AREA_MIN = 250;
+    public static final int PLAYABLE_AREA = 600;
     private Random rand;
     private static Character link;
     private int ratKill;
@@ -23,7 +24,7 @@ public class ZeldaWorld extends MasterWorld
      */
     public ZeldaWorld()
     {
-        super(1000, 1000, 1, GAME_WIDTH, GAME_HEIGHT);
+        super(PLAYABLE_AREA, PLAYABLE_AREA, 1, GAME_WIDTH, GAME_HEIGHT);
         rand = new Random();
         //Create objects
         createObjects();

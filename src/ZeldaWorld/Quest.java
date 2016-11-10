@@ -3,7 +3,7 @@ import java.awt.Color;
 /**
  * Write a description of class Quest here.
  * 
- * @author (your name) 
+ * @author EASV2016 Group 12 
  * @version (a version number or a date)
  */
 public class Quest extends Actor
@@ -34,9 +34,11 @@ public class Quest extends Actor
         this.targetEnemy = targetEnemy; 
         
     }
+    
     public Quest(String name, String description, String amount) {
        //blahblah
     }
+    
     /**
      * Act - do whatever the Quest wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

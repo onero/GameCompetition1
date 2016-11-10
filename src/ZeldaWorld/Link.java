@@ -9,7 +9,7 @@ import greenfoot.*;
  */
 public class Link extends Character
 {
-    /** The number of cells we move forward and backword */
+    //The number of cells we move forward and backword 
     private static final int MOVE_AMOUNT = 5;
     private static boolean isGuarded = false;
     private static int heroHealth;

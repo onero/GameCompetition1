@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * Write a description of class MusicPlayer here.
  * 
- * @author (your name) 
+ * @author EASV2016 Group 12
  * @version (a version number or a date)
  */
 public class MusicPlayer extends Actor
@@ -14,7 +14,7 @@ public class MusicPlayer extends Actor
     //public MusicPlayer()
     {
         musicArray = new ArrayList();
-        
+        //Add music for the musicPlayer
         musicArray.add(DESTINATION_PREFIX + "TitleMusic" + ".mp3");
         musicArray.add(DESTINATION_PREFIX + "ZeldaOverWorld" + ".mp3");
         musicArray.add(DESTINATION_PREFIX + "Dungeon" + ".mp3");

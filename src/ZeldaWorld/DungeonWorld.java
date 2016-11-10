@@ -9,10 +9,6 @@ import java.util.*;
  */
 public class DungeonWorld extends MasterWorld
 {
-    public static final int GAME_WIDTH = 2000;
-    public static final int GAME_HEIGHT = 2000;
-    public static final int GAME_AREA = 1000;
-    public static final int GAME_AREA_MIN = 250;
     Random rand = new Random();
     public static CastleWorld castleWorld;
     private MusicPlayer musicPlayer;
@@ -23,17 +19,35 @@ public class DungeonWorld extends MasterWorld
      */
     public DungeonWorld()
     {
-        super(600, 600, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
+        super(ZeldaWorld.PLAYABLE_AREA, ZeldaWorld.PLAYABLE_AREA, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
+        //Add player and information for game
         addCameraFollower(new Link(10, 5), 0, 0);
+        addObject(new PlayerInfo(), 85, 15);
+        
+        //Add Enemies
         for(int i = 0; i < 10; i++)
         {
-            addObject(new Slime(8, 3), rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
+            addObject(new Slime(8, 3), rand.nextInt(ZeldaWorld.GAME_AREA) + ZeldaWorld.GAME_AREA_MIN, rand.nextInt(ZeldaWorld.GAME_AREA) + ZeldaWorld.GAME_AREA_MIN);
         }
-
-        addCameraFollower(new Link(10, 5), 0, 0);
-
-        addObject(new PlayerInfo(), 85, 15);
-
+        
+        addObjects();
+        
+        //Add quest
+        quest = new Quest("Slimey!", "Slay five slimes!", 0,Slime.class);
+        addObject(quest, 500, 30);
+        //Add Guardian
+        addObject(new StigGood(10, 10), 1500, 300);
+        
+        //Add music
+        musicPlayer = new MusicPlayer();
+        dungeonWorldSound = new GreenfootSound(musicPlayer.getSound(2));
+        dungeonWorldSound.play();
+    }
+    
+    /**
+     * Add objects to DungeonWorld
+     */
+    private void addObjects() {
         //Difference between CaveWalls is 30
         for(int i = 110; i < 1771; i+=30)
         {
@@ -54,15 +68,7 @@ public class DungeonWorld extends MasterWorld
         {
             addObject(new CaveWall(), 1770 , i);
         }
-
-        addObject(new CastleEntrance(), 1500, 1500);
-        quest = new Quest("Slimey!", "Slay five slimes!", 0,Slime.class);
-        addObject(quest, 500, 30);
-        addObject(new StigGood(10, 10), 1500, 300);
         
-        //Add music
-        musicPlayer = new MusicPlayer();
-        dungeonWorldSound = new GreenfootSound(musicPlayer.getSound(2));
-        dungeonWorldSound.play();
+        addObject(new CastleEntrance(), 1500, 1500);
     }
 }
