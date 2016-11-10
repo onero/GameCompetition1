@@ -31,6 +31,7 @@ public class CastleWorld extends MasterWorld
         //addObject(new Knight(10, 10), 1700, 1685);
         //Add boss
         addObject(new JeppeTheForker(20, 4, "trident", 6),1300, 300);
+        addObject(new Peter(), 950, 1030);
      
         addObjects();
         
