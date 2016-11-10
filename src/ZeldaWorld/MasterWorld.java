@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class MasterWorld here.
  * 
@@ -18,6 +18,7 @@ public abstract class MasterWorld extends ScrollWorld
     protected static CastleWorld castleWorld;
     protected static GameOverWorld gameOverWorld;
     protected static WinWorld winWorld;
+    protected static Random rand;
     private static MusicPlayer musicPlayer;
     public static GreenfootSound zeldaWorldSound;
     public static GreenfootSound dungeonWorldSound;

@@ -6,7 +6,7 @@ import java.util.*;
  * @author EASV2016 Group 12
  * @version (a version number or a date)
  */
-public class MusicPlayer extends Actor
+public class MusicPlayer
 {
     private final String DESTINATION_PREFIX = "sounds/";
     private ArrayList<String> musicArray;

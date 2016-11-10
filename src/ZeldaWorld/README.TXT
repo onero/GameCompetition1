@@ -6,7 +6,7 @@ PURPOSE OF PROJECT:
 Compulsary assignment for CS2016 at EASV
 
 VERSION or DATE:
-Beta released on 10/11/2016
+Release Candidate released on 10/11/2016
 
 HOW TO START THIS PROJECT:
 Install Greenfoot from http://www.greenfoot.org/download

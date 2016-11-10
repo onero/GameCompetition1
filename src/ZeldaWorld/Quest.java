@@ -9,15 +9,13 @@ import java.awt.Color;
 public class Quest extends Actor
 { 
     private static final Color textColor = Color.BLACK;
+    private static final Color numberColor = Color.RED;
     private String questName;
     private String questDescription;
-    private static int questAmount = 0;
-    private int questGoal = 0;
+    private static int questAmount;
+    private int questGoal;
     private Class questEnemy;
     private boolean questCompleted;
-    //private Class<?> targetEnemy = null;
-    // <?> Undefined type
-    
     /**
      * Creates the quest based on information parameters
      */
@@ -80,10 +78,9 @@ public class Quest extends Actor
     private final void updateImage()
     {
         getImage().clear();
-        //TODO ALH: Get this to work with real data!
         GreenfootImage name = new GreenfootImage(questName, 25, textColor, null);
         GreenfootImage description = new GreenfootImage(questDescription, 25, textColor, null);
-        GreenfootImage amount = new GreenfootImage (Integer.toString(questAmount), 25, textColor, null);
+        GreenfootImage amount = new GreenfootImage (Integer.toString(questAmount), 25, numberColor, null);
         getImage().drawImage(name, 0, 15);
         getImage().drawImage(description, 0, 30);
         getImage().drawImage(amount, 0, 45);
