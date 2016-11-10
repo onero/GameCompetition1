@@ -9,60 +9,97 @@ import java.util.*;
  */
 public class DungeonWorld extends MasterWorld
 {
-    public static final int GAME_WIDTH = 2000;
-    public static final int GAME_HEIGHT = 2000;
-    public static final int GAME_AREA = 1000;
-    public static final int GAME_AREA_MIN = 250;
     Random rand = new Random();
+    private boolean castleEntranceCreated = false;
     public static CastleWorld castleWorld;
-    private MusicPlayer musicPlayer;
-    public static GreenfootSound dungeonWorldSound;
     /**
      * Constructor for objects of class DungeonWorld.
      *
      */
     public DungeonWorld()
     {
-        super(600, 600, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
+        super(ZeldaWorld.PLAYABLE_AREA, ZeldaWorld.PLAYABLE_AREA, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
+        //Add player and information for game
         addCameraFollower(new Link(10, 5), 0, 0);
-        for(int i = 0; i < 10; i++)
-        {
-            addObject(new Slime(8, 3), rand.nextInt(GAME_AREA) + GAME_AREA_MIN, rand.nextInt(GAME_AREA) + GAME_AREA_MIN);
-        }
-
-        addCameraFollower(new Link(10, 5), 0, 0);
-
         addObject(new PlayerInfo(), 85, 15);
 
+        addEnemies();
+
+        addObjects();
+        //Add quest
+        quest = new Quest("Slimey!", "Slay five slimes!", 5 , Slime.class);
+        addObject(quest, 500, 30);
+        //Add Guardian
+        addObject(new StigGood(10, 10), 300, 800);
+        addObject(new StigEvil(10, 4, "", 0), 600, 200);
+
+        //Add music
+        MasterWorld.dungeonWorldSound.play();
+    }
+
+    /**
+     * Add Enemies
+     */
+    private void addEnemies() {
+        addObject(new Slime(5, 2), 300, 500);
+        addObject(new Slime(5, 2), 300, 1000);
+        addObject(new Slime(5, 2), 900, 500);
+        addObject(new Slime(5, 2), 1200, 800);
+        addObject(new Slime(5, 2), 1700, 1600);
+    }
+
+    /**
+     * Add objects to DungeonWorld
+     */
+    private void addObjects() {
         //Difference between CaveWalls is 30
-        for(int i = 110; i < 1771; i+=30)
-        {
-            addObject(new CaveWall(), 110 , i);
-        }
+        int standardMinSize = 110;
+        int standardMaxSize = 1771;
+        int standardOffset = 30;
 
-        for(int i = 110; i < 1771; i+=30)
+        //Top line off walls
+        for(int i = standardMinSize; i < standardMaxSize; i += standardOffset)
         {
-            addObject(new CaveWall(), i, 110);
+            addObject(new CaveWall(), standardMinSize , i);
         }
-
-        for(int i = 110; i < 1771; i+=30)
+        //Left line off walls
+        for(int i = standardMinSize; i < standardMaxSize; i += standardOffset)
+        {
+            addObject(new CaveWall(), i, standardMinSize);
+        }
+        //Button line off walls
+        for(int i = standardMinSize; i < standardMaxSize; i += standardOffset)
         {
             addObject(new CaveWall(), i, 1770);
         }
-
-        for(int i = 110; i < 1771; i+=30)
+        //Right line off walls
+        for(int i = standardMinSize; i < standardMaxSize; i += standardOffset)
         {
             addObject(new CaveWall(), 1770 , i);
         }
+        // Level wall layout
+        for(int i = standardMinSize; i < 1400; i += standardOffset)
+        {
+            addObject(new CaveWall(), 400 , i);
+        }
+        for(int i = 400; i < 1400; i+=30)
+        {
+            addObject(new CaveWall(), i , 400);
+        }
+        for(int i = 800; i < 2000; i+=30)
+        {
+            addObject(new CaveWall(), i , 1000);
+        }
+    }
 
-        addObject(new CastleEntrance(), 1500, 1500);
-        quest = new Quest("Slimey!", "Slay five slimes!", 0,Slime.class);
-        addObject(quest, 500, 30);
-        addObject(new StigGood(10, 10), 1500, 300);
-        
-        //Add music
-        musicPlayer = new MusicPlayer();
-        dungeonWorldSound = new GreenfootSound(musicPlayer.getSound(2));
-        dungeonWorldSound.play();
+    /**
+     * Check if we should create entrance to castleWorld
+     */
+    public void checkCreateCastleEntrance() {
+        Quest quest = this.getQuest();
+        if (quest.getQuestCompleted() == true && castleEntranceCreated == false) {
+            addObject(new CastleEntrance(), 1500, 1500);
+            castleEntranceCreated = true;
+        }
     }
 }

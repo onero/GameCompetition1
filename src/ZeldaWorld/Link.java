@@ -9,18 +9,17 @@ import greenfoot.*;
  */
 public class Link extends Character
 {
-    /** The number of cells we move forward and backword */
+    //The number of cells we move forward and backword 
     private static final int MOVE_AMOUNT = 5;
-    private static boolean isGuarded = false;
+    private static boolean isGuarded;
     private static int heroHealth;
-    public static int killCount;
     /**
      * Create the main character Link
      */
     public Link(int health, int damage) {
         heroHealth = health;
         super.damage = damage;
-        killCount = 0;
+        isGuarded = false;
     }
 
     /**
@@ -47,9 +46,9 @@ public class Link extends Character
         }
         //If character enters dungeon set world to DungeonWorld
         if (isTouching(Dungeon.class)) {
-            ZeldaWorld.zeldaWorldSound.stop();
-            ZeldaWorld.dungeonWorld = new DungeonWorld();
-            Greenfoot.setWorld(ZeldaWorld.dungeonWorld);
+            MasterWorld.stopSound();
+            MasterWorld.dungeonWorld = new DungeonWorld();
+            Greenfoot.setWorld(MasterWorld.dungeonWorld);
         }
 
         if (enemyIsNear()) {
@@ -58,10 +57,12 @@ public class Link extends Character
 
         //If character enters castle set world to CastleWorld
         if (isTouching(CastleEntrance.class)) {
-            DungeonWorld.dungeonWorldSound.stop();
-            DungeonWorld.castleWorld = new CastleWorld();
-            Greenfoot.setWorld(DungeonWorld.castleWorld);
+            MasterWorld.stopSound();
+            MasterWorld.castleWorld = new CastleWorld();
+            Greenfoot.setWorld(MasterWorld.castleWorld);
         }
+        
+        checkPlayerDeath();
     }
 
     /**
@@ -84,11 +85,41 @@ public class Link extends Character
     private void fightMonster() {
         Enemy currentEnemy = (Enemy) getOneIntersectingObject(Enemy.class);
         if (currentEnemy.isAlive()) {
-            takeDamage(currentEnemy.getDamage());
+            takeHeroDamage(currentEnemy.getDamage());
             currentEnemy.takeDamage(damage);
         } else {
             getKill();
+            if  (currentEnemy.getClass().equals(JeppeTheForker.class)) {
+                MasterWorld.stopSound();
+                killedLastBoss();
+            }
             removeTouching(currentEnemy.getClass());
+        }
+    }
+    
+    /**
+     * Killed last boss
+     */
+    private void killedLastBoss() {
+        MasterWorld.winWorld = new WinWorld();
+        Greenfoot.setWorld(MasterWorld.winWorld);
+    }
+    
+    /**
+     * Hero takes damage
+     */
+    private void takeHeroDamage(int damage) {
+        heroHealth -= damage;
+    }
+    
+    /**
+     * Check player death
+     */
+    private void checkPlayerDeath() {
+        if (heroHealth <= 0) {
+            MasterWorld.stopSound();
+            MasterWorld.gameOverWorld = new GameOverWorld();
+            Greenfoot.setWorld(MasterWorld.gameOverWorld);
         }
     }
 
@@ -101,21 +132,28 @@ public class Link extends Character
             heroHealth += protection;
         }
     }
-    
+
     private void getKill()
     {
         Enemy currentEnemy = (Enemy) getOneIntersectingObject(Enemy.class);
         if(currentEnemy.isAlive != true)
         {
-            killCount++;
             MasterWorld world = (MasterWorld)getWorld();
+            ZeldaWorld zeldaWorld = null;
+            DungeonWorld dungeonWorld = null;
             Quest quest = world.getQuest();
-            quest.sendEnemy(currentEnemy);
+            if (quest.getQuestEnemy().equals(currentEnemy.getClass())) {
+                quest.updateQuestAmount();
+                quest.checkQuestComplete();
+                if (getWorld().getClass().equals(ZeldaWorld.class)) {
+                    zeldaWorld = (ZeldaWorld)getWorld();
+                    zeldaWorld.checkCreateDungeonEntrance();
+                }
+                if (getWorld().getClass().equals(DungeonWorld.class)) {
+                    dungeonWorld = (DungeonWorld)getWorld();
+                    dungeonWorld.checkCreateCastleEntrance();
+                }
+            }
         }
-    }
-    
-    public static int getKillCounter()
-    {
-        return killCount;
     }
 }
