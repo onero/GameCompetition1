@@ -8,7 +8,6 @@ import java.util.*;
 public class ZeldaWorld extends MasterWorld
 {
     private boolean dungeonEntranceCreated;
-    private Random rand;
     private static Character link;
     /**
      * Constructor for objects of class DemoWorld.

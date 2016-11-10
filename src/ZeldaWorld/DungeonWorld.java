@@ -11,7 +11,6 @@ public class DungeonWorld extends MasterWorld
 {
     Random rand = new Random();
     private boolean castleEntranceCreated = false;
-    public static CastleWorld castleWorld;
     /**
      * Constructor for objects of class DungeonWorld.
      *

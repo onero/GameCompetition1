@@ -8,7 +8,6 @@ import java.util.*;
  */
 public class CastleWorld extends MasterWorld
 {
-    Random rand = new Random();
     /**
      * Constructor for objects of class CastleWorld.
      *
@@ -16,6 +15,7 @@ public class CastleWorld extends MasterWorld
     public CastleWorld()
     {
         super(ZeldaWorld.PLAYABLE_AREA, ZeldaWorld.PLAYABLE_AREA, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
+        rand = new Random();
         //Add player and information for game
         addCameraFollower(new Link(10, 5), 0, 0);
         addObject(new PlayerInfo(), 85, 15);

@@ -9,7 +9,7 @@ import java.awt.Color;
  */
 public class PlayerInfo extends Actor
 {
-    private static final Color textColor = Color.BLACK;
+    private static final Color textColor = Color.RED;
     private static final String HEALTH_PREFIX = "Health: ";
     private static final String DAMAGE_PREFIX = "Damage: ";
     
