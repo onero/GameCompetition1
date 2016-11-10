@@ -17,4 +17,12 @@ public class GameOverWorld extends MasterWorld
     {
         super(ZeldaWorld.PLAYABLE_AREA, ZeldaWorld.PLAYABLE_AREA, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
     }
+    
+        public void act(){
+        String key = Greenfoot.getKey();
+        if (key != null && key.equals("enter"))
+        {
+            Greenfoot.setWorld(MasterWorld.zeldaWorld);
+        }
+    }
 }
