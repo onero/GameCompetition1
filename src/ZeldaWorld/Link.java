@@ -88,7 +88,7 @@ public class Link extends Character
             takeHeroDamage(currentEnemy.getDamage());
             currentEnemy.takeDamage(damage);
         } else {
-            getKill();
+            checkKillForQuest();
             if  (currentEnemy.getClass().equals(JeppeTheForker.class)) {
                 MasterWorld.stopSound();
                 killedLastBoss();
@@ -132,8 +132,11 @@ public class Link extends Character
             heroHealth += protection;
         }
     }
-
-    private void getKill()
+    
+    /**
+     * Checks the enemy we just killed 
+     */
+    private void checkKillForQuest()
     {
         Enemy currentEnemy = (Enemy) getOneIntersectingObject(Enemy.class);
         if(currentEnemy.isAlive != true)

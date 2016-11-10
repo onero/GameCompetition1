@@ -42,6 +42,9 @@ public abstract class MasterWorld extends ScrollWorld
         looseSound = new GreenfootSound(musicPlayer.getSound(5));
     }
     
+    /**
+     * Gets the quest
+     */
     public Quest getQuest() {
         return quest;
     }

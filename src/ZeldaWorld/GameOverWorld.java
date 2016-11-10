@@ -17,7 +17,10 @@ public class GameOverWorld extends MasterWorld
         super(ZeldaWorld.PLAYABLE_AREA, ZeldaWorld.PLAYABLE_AREA, 1, ZeldaWorld.GAME_WIDTH, ZeldaWorld.GAME_HEIGHT);
         MasterWorld.looseSound.play();
     }
-
+    /**
+     * Act - do whatever the Wall wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
     public void act(){
         String key = Greenfoot.getKey();
         if (key != null && key.equals("enter"))

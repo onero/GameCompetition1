@@ -11,7 +11,7 @@ public class MusicPlayer
     private final String DESTINATION_PREFIX = "sounds/";
     private ArrayList<String> musicArray;
     
-    //public MusicPlayer()
+    public MusicPlayer()
     {
         musicArray = new ArrayList();
         //Add music for the musicPlayer
