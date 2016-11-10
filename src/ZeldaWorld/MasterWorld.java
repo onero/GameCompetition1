@@ -21,4 +21,11 @@ public abstract class MasterWorld extends ScrollWorld
     public Quest getQuest() {
         return quest;
     }
+    
+    /**
+     * Get quest completed
+     */
+    public boolean getQuestCompleted() {
+        return quest.getQuestCompleted();
+    }
 }

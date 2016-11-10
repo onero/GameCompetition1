@@ -13,14 +13,12 @@ public class Link extends Character
     private static final int MOVE_AMOUNT = 5;
     private static boolean isGuarded = false;
     private static int heroHealth;
-    public static int killCount;
     /**
      * Create the main character Link
      */
     public Link(int health, int damage) {
         heroHealth = health;
         super.damage = damage;
-        killCount = 0;
     }
 
     /**
@@ -101,21 +99,28 @@ public class Link extends Character
             heroHealth += protection;
         }
     }
-    
+
     private void getKill()
     {
         Enemy currentEnemy = (Enemy) getOneIntersectingObject(Enemy.class);
         if(currentEnemy.isAlive != true)
         {
-            killCount++;
             MasterWorld world = (MasterWorld)getWorld();
+            ZeldaWorld zeldaWorld = null;
+            DungeonWorld dungeonWorld = null;
             Quest quest = world.getQuest();
-            quest.sendEnemy(currentEnemy);
+            if (quest.getQuestEnemy().equals(currentEnemy.getClass())) {
+                quest.updateQuestAmount();
+                quest.checkQuestComplete();
+                if (getWorld().getClass().equals(ZeldaWorld.class)) {
+                    zeldaWorld = (ZeldaWorld)getWorld();
+                    zeldaWorld.checkCreateDungeonEntrance();
+                }
+                if (getWorld().getClass().equals(DungeonWorld.class)) {
+                    dungeonWorld = (DungeonWorld)getWorld();
+                    dungeonWorld.checkCreateCastleEntrance();
+                }
+            }
         }
-    }
-    
-    public static int getKillCounter()
-    {
-        return killCount;
     }
 }

@@ -10,6 +10,7 @@ import java.util.*;
 public class DungeonWorld extends MasterWorld
 {
     Random rand = new Random();
+    private boolean castleEntranceCreated = false;
     public static CastleWorld castleWorld;
     private MusicPlayer musicPlayer;
     public static GreenfootSound dungeonWorldSound;
@@ -33,7 +34,7 @@ public class DungeonWorld extends MasterWorld
         addObjects();
         
         //Add quest
-        quest = new Quest("Slimey!", "Slay five slimes!", 0,Slime.class);
+        quest = new Quest("Slimey!", "Slay five slimes!", 5 , Slime.class);
         addObject(quest, 500, 30);
         //Add Guardian
         addObject(new StigGood(10, 10), 1500, 300);
@@ -68,7 +69,16 @@ public class DungeonWorld extends MasterWorld
         {
             addObject(new CaveWall(), 1770 , i);
         }
-        
-        addObject(new CastleEntrance(), 1500, 1500);
+    }
+    
+    /**
+     * Check if we should create entrance to castleWorld
+     */
+    public void checkCreateCastleEntrance() {
+        Quest quest = this.getQuest();
+        if (quest.getQuestCompleted() == true && castleEntranceCreated == false) {
+            addObject(new CastleEntrance(), 1500, 1500);
+            castleEntranceCreated = true;
+        }
     }
 }

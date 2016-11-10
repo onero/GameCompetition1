@@ -11,32 +11,25 @@ public class Quest extends Actor
     private static final Color textColor = Color.BLACK;
     private String questName;
     private String questDescription;
-    private int questAmount = 0;
-    private Class<?> targetEnemy = null;
+    private static int questAmount = 0;
+    private int questGoal = 0;
+    private Class questEnemy;
+    private boolean questCompleted;
+    //private Class<?> targetEnemy = null;
     // <?> Undefined type
     
     /**
      * Creates the quest based on information parameters
      */
-    public Quest(String name, String description, int amount) {
+    public Quest(String name, String description, int amount, Class targetEnemy) {
         questName = name;
         questDescription = description;
-        questAmount = amount;
-        
+        questAmount = 0;
+        questGoal = amount;
+        questCompleted = false;
+        questEnemy = targetEnemy;
         setImage(new GreenfootImage(200, 90));
         GreenfootImage image = getImage();
-    }
-    
-    //<T> Udefined subclass of the Enemy class
-    //Generics
-    public <T extends Enemy> Quest(String name, String description, int amount, Class<T> targetEnemy) {
-        this(name,description,amount);
-        this.targetEnemy = targetEnemy; 
-        
-    }
-    
-    public Quest(String name, String description, String amount) {
-       //blahblah
     }
     
     /**
@@ -46,14 +39,39 @@ public class Quest extends Actor
     public void act() 
     {
         updateImage();
-    }    
+        checkQuestComplete();
+    }
     
-    public <T extends Enemy> void sendEnemy(T enemy) {
-        if (targetEnemy != null) {
-            if (enemy.getClass() == targetEnemy) {
-                questAmount++;
-            }
+    /**
+     * Check if quest is completed
+     */
+    public boolean checkQuestComplete() {
+        boolean complete = false;
+        if (questAmount == questGoal) {
+            complete = true;
+            questCompleted = true;
         }
+        return complete;
+    }
+    
+    /**
+     * Update quest amount
+     */
+    public static void updateQuestAmount() {
+        questAmount++;
+    }
+    
+    /**
+     * Get quest enemy
+     */
+    public Class getQuestEnemy() {
+        return questEnemy;
+    }
+    /**
+     * Get the quest completed boolean
+     */
+    public boolean getQuestCompleted() {
+        return questCompleted;
     }
     
     /**

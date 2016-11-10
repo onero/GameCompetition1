@@ -12,9 +12,9 @@ public class ZeldaWorld extends MasterWorld
     public static final int GAME_AREA = 1000;
     public static final int GAME_AREA_MIN = 250;
     public static final int PLAYABLE_AREA = 600;
+    private boolean dungeonEntranceCreated;
     private Random rand;
     private static Character link;
-    private int ratKill;
     public static DungeonWorld dungeonWorld;
     private MusicPlayer musicPlayer;
     public static GreenfootSound zeldaWorldSound;
@@ -26,6 +26,7 @@ public class ZeldaWorld extends MasterWorld
     {
         super(PLAYABLE_AREA, PLAYABLE_AREA, 1, GAME_WIDTH, GAME_HEIGHT);
         rand = new Random();
+        dungeonEntranceCreated = false;
         //Create objects
         createObjects();
         //Add main player
@@ -37,12 +38,10 @@ public class ZeldaWorld extends MasterWorld
         //Create enemies
         createEnemies();
         //Create quest
-        //TODO ALH: Add real quest
-        ratKill = 0;
         musicPlayer = new MusicPlayer();
         zeldaWorldSound = new GreenfootSound(musicPlayer.getSound(1));
         zeldaWorldSound.play();
-        quest = new Quest("Rats!", "Slay five rats!",Link.getKillCounter(),Rat.class);
+        quest = new Quest("Rats!", "Slay five rats!", 5, Rat.class);
         addObject(quest, 500, 30);
     }
 
@@ -104,8 +103,6 @@ public class ZeldaWorld extends MasterWorld
         {
             addObject(new Tree(), GAME_WIDTH - 350, i);
         }
-
-        addObject(new Dungeon(), 300, 1100);
     }
 
     /**
@@ -125,6 +122,15 @@ public class ZeldaWorld extends MasterWorld
     public static Character getPlayer() {
         return link;
     }
-
-
+    
+    /**
+     * create dungeonEntrance
+     */
+    public void checkCreateDungeonEntrance() {
+        Quest quest = this.getQuest();
+        if (quest.getQuestCompleted() == true && dungeonEntranceCreated == false) {
+            addObject(new Dungeon(), 300, 1100);
+            dungeonEntranceCreated = true;
+        }
+    }
 }
