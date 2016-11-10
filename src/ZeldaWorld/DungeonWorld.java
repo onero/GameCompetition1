@@ -26,11 +26,11 @@ public class DungeonWorld extends MasterWorld
         addObject(new PlayerInfo(), 85, 15);
         
         //Add Enemies
-            addObject(new Slime(5, 3), 300, 500);
-            addObject(new Slime(5, 3), 300, 1000);
-            addObject(new Slime(5, 3), 900, 500);
-            addObject(new Slime(5, 3), 1200, 800);
-            addObject(new Slime(5, 3), 1700, 1600);
+            addObject(new Slime(5, 2), 300, 500);
+            addObject(new Slime(5, 2), 300, 1000);
+            addObject(new Slime(5, 2), 900, 500);
+            addObject(new Slime(5, 2), 1200, 800);
+            addObject(new Slime(5, 2), 1700, 1600);
         
         addObjects();
         
@@ -39,7 +39,7 @@ public class DungeonWorld extends MasterWorld
         addObject(quest, 500, 30);
         //Add Guardian
         addObject(new StigGood(10, 10), 300, 800);
-        addObject(new StigEvil(10, 10, "", 0), 600, 200);
+        addObject(new StigEvil(10, 4, "", 0), 600, 200);
         
         
         //Add music

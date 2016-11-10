@@ -8,7 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class MasterWorld extends ScrollWorld
 {
+    protected static ZeldaWorld zeldaWorld;
+    protected static DungeonWorld dungeonWorld;
+    protected static CastleWorld castleWorld;
     protected static GameOverWorld gameOverWorld;
+    
     protected Quest quest;
     /**
      * Constructor for objects of class MasterWorld.

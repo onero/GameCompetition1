@@ -25,14 +25,14 @@ public class CastleWorld extends MasterWorld
         quest = new Quest("The Boss!", "Slay Jeppe the Forker!", 0, JeppeTheForker.class);
         addObject(quest, 450, 30);
         //Add guardian
-        addObject(new Knight(10, 10), 150, 1700);
-        addObject(new Knight(10, 10), 150, 900);
-        addObject(new Knight(10, 10), 965, 1045);
-        addObject(new Knight(10, 10), 965, 1685);
+        //addObject(new Knight(10, 10), 150, 1700);
+        //addObject(new Knight(10, 10), 150, 900);
+        //addObject(new Knight(10, 10), 965, 1045);
+        //addObject(new Knight(10, 10), 965, 1685);
         addObject(new Knight(10, 10), 1700, 900);
-        addObject(new Knight(10, 10), 1700, 1685);
+        //addObject(new Knight(10, 10), 1700, 1685);
         //Add boss
-        addObject(new JeppeTheForker(20, 6, "trident", 6),1300, 300);
+        addObject(new JeppeTheForker(20, 4, "trident", 6),1300, 300);
      
         addObjects();
         
