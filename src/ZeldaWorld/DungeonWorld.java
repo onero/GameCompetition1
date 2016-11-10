@@ -26,10 +26,11 @@ public class DungeonWorld extends MasterWorld
         addObject(new PlayerInfo(), 85, 15);
         
         //Add Enemies
-        for(int i = 0; i < 10; i++)
-        {
-            addObject(new Slime(8, 3), rand.nextInt(ZeldaWorld.GAME_AREA) + ZeldaWorld.GAME_AREA_MIN, rand.nextInt(ZeldaWorld.GAME_AREA) + ZeldaWorld.GAME_AREA_MIN);
-        }
+            addObject(new Slime(8, 3), 300, 500);
+            addObject(new Slime(8, 3), 300, 1000);
+            addObject(new Slime(8, 3), 900, 500);
+            addObject(new Slime(8, 3), 1200, 800);
+            addObject(new Slime(8, 3), 1700, 1600);
         
         addObjects();
         
@@ -50,25 +51,42 @@ public class DungeonWorld extends MasterWorld
      */
     private void addObjects() {
         //Difference between CaveWalls is 30
+        
+        //Top line off walls
         for(int i = 110; i < 1771; i+=30)
         {
             addObject(new CaveWall(), 110 , i);
         }
-
+        //Left line off walls
         for(int i = 110; i < 1771; i+=30)
         {
             addObject(new CaveWall(), i, 110);
         }
-
+        //Button line off walls
         for(int i = 110; i < 1771; i+=30)
         {
             addObject(new CaveWall(), i, 1770);
         }
-
+        //Right line off walls
         for(int i = 110; i < 1771; i+=30)
         {
             addObject(new CaveWall(), 1770 , i);
         }
+        // Level wall layout
+        for(int i = 110; i < 1400; i+=30)
+        {
+            addObject(new CaveWall(), 400 , i);
+        }
+        for(int i = 400; i < 1400; i+=30)
+        {
+            addObject(new CaveWall(), i , 400);
+        }
+        for(int i = 800; i < 2000; i+=30)
+        {
+            addObject(new CaveWall(), i , 1000);
+        }
+        
+        addObject(new CastleEntrance(), 1500, 1500);
     }
     
     /**
