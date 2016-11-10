@@ -22,15 +22,10 @@ public class CastleWorld extends MasterWorld
         //Add quest
         quest = new Quest("The Boss!", "Slay Jeppe the Forker!", 0, JeppeTheForker.class);
         addObject(quest, 450, 30);
-        //Add guardian
-        //addObject(new Knight(10, 10), 150, 1700);
-        //addObject(new Knight(10, 10), 150, 900);
-        //addObject(new Knight(10, 10), 965, 1045);
-        //addObject(new Knight(10, 10), 965, 1685);
+        //Add Guardian
         addObject(new Knight(10, 10), 1700, 900);
-        //addObject(new Knight(10, 10), 1700, 1685);
         //Add boss
-        addObject(new JeppeTheForker(20, 4, "trident", 6),1300, 300);
+        addObject(new JeppeTheForker(20, 4, "trident", 6), 1300, 300);
         addObject(new Peter(), 950, 1030);
      
         addObjects();
@@ -43,26 +38,28 @@ public class CastleWorld extends MasterWorld
      * Add objects for CastleWorld
      */
     private void addObjects() {
-        for(int i = 110; i < 1771; i+=30)
+        int standardMinSize = 110;
+        int standardMaxSize = 1771;
+        for(int i = standardMinSize; i < standardMaxSize; i+=30)
         {
             addObject(new CaveWall(), 110 , i);
         }
 
-        for(int i = 110; i < 1771; i+=30)
+        for(int i = standardMinSize; i < standardMaxSize; i+=30)
         {
             addObject(new CaveWall(), i, 110);
         }
 
-        for(int i = 110; i < 1771; i+=30)
+        for(int i = standardMinSize; i < standardMaxSize; i+=30)
         {
             addObject(new CaveWall(), i, 1770);
         }
 
-        for(int i = 110; i < 1771; i+=30)
+        for(int i = standardMinSize; i < standardMaxSize; i+=30)
         {
             addObject(new CaveWall(), 1770 , i);
         }
-        for(int i = 110; i < 1000; i += 200)
+        for(int i = standardMinSize; i < 1000; i += 200)
         {
             addObject(new Pillar(), 1000, i);
         }

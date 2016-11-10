@@ -22,56 +22,63 @@ public class DungeonWorld extends MasterWorld
         //Add player and information for game
         addCameraFollower(new Link(10, 5), 0, 0);
         addObject(new PlayerInfo(), 85, 15);
-        
-        //Add Enemies
-            addObject(new Slime(5, 2), 300, 500);
-            addObject(new Slime(5, 2), 300, 1000);
-            addObject(new Slime(5, 2), 900, 500);
-            addObject(new Slime(5, 2), 1200, 800);
-            addObject(new Slime(5, 2), 1700, 1600);
-        
+
+        addEnemies();
+
         addObjects();
-        
         //Add quest
         quest = new Quest("Slimey!", "Slay five slimes!", 5 , Slime.class);
         addObject(quest, 500, 30);
         //Add Guardian
         addObject(new StigGood(10, 10), 300, 800);
         addObject(new StigEvil(10, 4, "", 0), 600, 200);
-        
-        
+
         //Add music
         MasterWorld.dungeonWorldSound.play();
     }
-    
+
+    /**
+     * Add Enemies
+     */
+    private void addEnemies() {
+        addObject(new Slime(5, 2), 300, 500);
+        addObject(new Slime(5, 2), 300, 1000);
+        addObject(new Slime(5, 2), 900, 500);
+        addObject(new Slime(5, 2), 1200, 800);
+        addObject(new Slime(5, 2), 1700, 1600);
+    }
+
     /**
      * Add objects to DungeonWorld
      */
     private void addObjects() {
         //Difference between CaveWalls is 30
-        
+        int standardMinSize = 110;
+        int standardMaxSize = 1771;
+        int standardOffset = 30;
+
         //Top line off walls
-        for(int i = 110; i < 1771; i+=30)
+        for(int i = standardMinSize; i < standardMaxSize; i += standardOffset)
         {
-            addObject(new CaveWall(), 110 , i);
+            addObject(new CaveWall(), standardMinSize , i);
         }
         //Left line off walls
-        for(int i = 110; i < 1771; i+=30)
+        for(int i = standardMinSize; i < standardMaxSize; i += standardOffset)
         {
-            addObject(new CaveWall(), i, 110);
+            addObject(new CaveWall(), i, standardMinSize);
         }
         //Button line off walls
-        for(int i = 110; i < 1771; i+=30)
+        for(int i = standardMinSize; i < standardMaxSize; i += standardOffset)
         {
             addObject(new CaveWall(), i, 1770);
         }
         //Right line off walls
-        for(int i = 110; i < 1771; i+=30)
+        for(int i = standardMinSize; i < standardMaxSize; i += standardOffset)
         {
             addObject(new CaveWall(), 1770 , i);
         }
         // Level wall layout
-        for(int i = 110; i < 1400; i+=30)
+        for(int i = standardMinSize; i < 1400; i += standardOffset)
         {
             addObject(new CaveWall(), 400 , i);
         }
@@ -84,7 +91,7 @@ public class DungeonWorld extends MasterWorld
             addObject(new CaveWall(), i , 1000);
         }
     }
-    
+
     /**
      * Check if we should create entrance to castleWorld
      */

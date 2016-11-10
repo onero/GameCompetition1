@@ -47,8 +47,8 @@ public class Link extends Character
         //If character enters dungeon set world to DungeonWorld
         if (isTouching(Dungeon.class)) {
             MasterWorld.stopSound();
-            ZeldaWorld.dungeonWorld = new DungeonWorld();
-            Greenfoot.setWorld(ZeldaWorld.dungeonWorld);
+            MasterWorld.dungeonWorld = new DungeonWorld();
+            Greenfoot.setWorld(MasterWorld.dungeonWorld);
         }
 
         if (enemyIsNear()) {
@@ -58,8 +58,8 @@ public class Link extends Character
         //If character enters castle set world to CastleWorld
         if (isTouching(CastleEntrance.class)) {
             MasterWorld.stopSound();
-            DungeonWorld.castleWorld = new CastleWorld();
-            Greenfoot.setWorld(DungeonWorld.castleWorld);
+            MasterWorld.castleWorld = new CastleWorld();
+            Greenfoot.setWorld(MasterWorld.castleWorld);
         }
         
         checkPlayerDeath();
@@ -90,6 +90,7 @@ public class Link extends Character
         } else {
             getKill();
             if  (currentEnemy.getClass().equals(JeppeTheForker.class)) {
+                MasterWorld.stopSound();
                 killedLastBoss();
             }
             removeTouching(currentEnemy.getClass());
@@ -101,7 +102,6 @@ public class Link extends Character
      */
     private void killedLastBoss() {
         MasterWorld.winWorld = new WinWorld();
-        MasterWorld.stopSound();
         Greenfoot.setWorld(MasterWorld.winWorld);
     }
     
@@ -117,8 +117,8 @@ public class Link extends Character
      */
     private void checkPlayerDeath() {
         if (heroHealth <= 0) {
-            MasterWorld.gameOverWorld = new GameOverWorld();
             MasterWorld.stopSound();
+            MasterWorld.gameOverWorld = new GameOverWorld();
             Greenfoot.setWorld(MasterWorld.gameOverWorld);
         }
     }
