@@ -45,6 +45,8 @@ public class DungeonWorld extends MasterWorld
         addObject(new Slime(5, 2), 900, 500);
         addObject(new Slime(5, 2), 1200, 800);
         addObject(new Slime(5, 2), 1700, 1600);
+        addObject(new Slime(5, 2), 800, 1300);
+        addObject(new Slime(5, 2), 1100, 1700);
     }
 
     /**
