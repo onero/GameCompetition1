@@ -13,6 +13,7 @@ public abstract class MasterWorld extends ScrollWorld
     protected static final int GAME_AREA = 1000;
     protected static final int GAME_AREA_MIN = 250;
     protected static final int PLAYABLE_AREA = 600;
+    protected static Character link;
     protected static ZeldaWorld zeldaWorld;
     protected static DungeonWorld dungeonWorld;
     protected static CastleWorld castleWorld;
