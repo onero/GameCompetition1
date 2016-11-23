@@ -19,6 +19,6 @@ Peder Laugesen
 
 USER INSTRUCTIONS:
 
-Start game by opening project.greenfoot from the src folder.
+Start game by opening WorldOfZelda.jar from the build folder.
 Hit run to start game!
 ------------------------------------------------------------------------
